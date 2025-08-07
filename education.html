@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Ticket Ecom Education - Ason's Mentorship</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #EDE8E1;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #000000;
+            padding: 2rem 0;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #EDE8E1;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .education-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .section-text {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #3B2F24;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #F6F1E9;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #F6F1E9;
+            font-weight: bold;
+        }
+
+        /* Key Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background-color: #F6F1E9;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #5B1F0F;
+        }
+
+        .principle-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+        }
+
+        .principle-text {
+            font-size: 0.95rem;
+            color: #3B2F24;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .cta-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #3B2F24;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #4A1A0D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4);
+        }
+
+        /* Video Sections */
+        .video-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .video-block {
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .video-block-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #3B2F24;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            margin: 0;
+        }
+
+        .video-block-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .video-block-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Questions Section */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .question-video {
+            margin-bottom: 1.5rem;
+        }
+
+        .question-video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .question-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .question-caption {
+            font-size: 0.9rem;
+            color: #5B1F0F;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #000000;
+            margin: 2% auto;
+            padding: 0;
+            width: 95%;
+            max-width: 600px;
+            height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            color: #EDE8E1;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .close:hover {
+            background-color: #1E293B;
+        }
+
+        .modal-body {
+            height: calc(100% - 80px);
+            padding: 0;
+        }
+
+        /* Full-screen Typeform Modal */
+        .typeform-modal {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            border-radius: 0;
+            background-color: white;
+            animation: typeformFadeIn 0.4s ease-out;
+        }
+
+        .typeform-modal .modal-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .typeform-modal .close {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .typeform-modal .close:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .typeform-modal .modal-body {
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .typeform-modal .modal-body iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes typeformFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .education-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .video-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2rem;
+            }
+
+            .hidden-cta {
+                padding: 1.5rem;
+            }
+
+            .typeform-modal .close {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+                top: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">High-Ticket Ecom Education</h1>
+            <p class="header-subtitle">Essential principles for building a real business</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction -->
+        <section class="education-section">
+            <h2 class="section-title">Why Most Ecom Founders Fail</h2>
+            <p class="section-text">
+                The ecommerce landscape is littered with failed attempts. Most founders chase viral products, copy competitors, and hope for the best. But the truth is, building a sustainable high-ticket business requires a fundamentally different approach.
+            </p>
+            <p class="section-text">
+                This primer will show you the core principles that separate successful operators from the rest. These aren't tactics or hacks — they're foundational business principles that work regardless of market conditions.
+            </p>
+        </section>
+
+        <!-- Key Principles -->
+        <section class="education-section">
+            <h2 class="section-title">The 4 Pillars of High-Ticket Success</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h3 class="principle-title">Real Positioning</h3>
+                    <p class="principle-text">
+                        Stop competing on price. Build authority, trust, and perceived value that justifies premium pricing. Your customers should feel like they're getting a deal at $500, not $50.
+                    </p>
+                </div>
+                <div class="principle-card">
+                    <h3 class="principle-title">Retention-First</h3>
+                    <p class="principle-text">
+                        Focus on lifetime value, not just first-time buyers. Build systems that keep customers coming back and spending more. This is where real profit lives.
+                    </p>
+                </div>
+                <div class="principle-card">
+                    <h3 class="principle-title">Infrastructure</h3>
+                    <p class="principle-text">
+                        Invest in systems that scale. From customer service to fulfillment, build processes that don't break when you hit $100K months.
+                    </p>
+                </div>
+                <div class="principle-card">
+                    <h3 class="principle-title">Authority Building</h3>
+                    <p class="principle-text">
+                        Become the go-to expert in your niche. This isn't about social media followers — it's about being the person others reference and recommend.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section class="education-section">
+            <h2 class="section-title">What You're Probably Doing Wrong</h2>
+            <div class="highlight-box">
+                <h3>The 3 Deadly Sins of Ecom</h3>
+                <ul>
+                    <li><strong>Chasing Trends:</strong> Viral products have short lifespans. Build for longevity, not virality.</li>
+                    <li><strong>Price Competition:</strong> Competing on price is a race to the bottom. Compete on value instead.</li>
+                    <li><strong>Neglecting Backend:</strong> One-time buyers aren't a business. Focus on repeat customers and upsells.</li>
+                </ul>
+            </div>
+            <p class="section-text">
+                Most founders spend 90% of their time on the wrong things. They optimize ads, test products, and chase the next big thing. Meanwhile, successful operators focus on building systems that compound over time.
+            </p>
+        </section>
+
+        <!-- Success Framework -->
+        <section class="education-section">
+            <h2 class="section-title">The Success Framework</h2>
+            <p class="section-text">
+                Here's the proven approach that works regardless of market conditions:
+            </p>
+            <div class="highlight-box">
+                <h3>The 3-Phase System</h3>
+                <ul>
+                    <li><strong>Phase 1:</strong> Build authority and trust in your niche</li>
+                    <li><strong>Phase 2:</strong> Create premium products with real value</li>
+                    <li><strong>Phase 3:</strong> Scale through retention and backend systems</li>
+                </ul>
+            </div>
+            <p class="section-text">
+                This isn't a get-rich-quick scheme. It's a systematic approach to building a real business that generates consistent revenue month after month.
+            </p>
+        </section>
+
+        <!-- Section 1: What Happens After You Apply -->
+        <section class="video-section">
+            <h2 class="section-title">What Happens After You Apply</h2>
+            <p class="section-text">Start here. This short video explains exactly what happens next and how this process works.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Section 1.5: Still Got Questions? -->
+        <section class="video-section" id="questionsSection">
+            <h2 class="section-title">Still Got Questions?</h2>
+            <p class="section-text">Here's Ason answering the most common questions we get from new applicants — fast, raw, and straight to the point.</p>
+            
+            <div class="questions-grid">
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">Is this better than dropshipping?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">How long does it take to see results?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">What if I have no experience?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">How much should I invest initially?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">What makes this different from other programs?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">Do you guarantee results?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">What's the time commitment?</p>
+                </div>
+                <div class="question-video">
+                    <div class="question-video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="question-caption">Can I do this part-time?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: High-Ticket Ecom Foundation -->
+        <section class="video-section">
+            <h2 class="section-title">High-Ticket Ecom: Foundation & Education</h2>
+            <p class="section-text">Watch these to understand how Ason builds real brands with real retention — not trends.</p>
+            
+            <div class="video-grid">
+                <div class="video-block">
+                    <h3 class="video-block-title">Video 1</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Video 2</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Video 3</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Video 4</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Student Results & Proof -->
+        <section class="video-section">
+            <h2 class="section-title">Student Results & Proof</h2>
+            <p class="section-text">No fluff. Just real people, real results, and real brands built from scratch.</p>
+            
+            <div class="video-grid">
+                <div class="video-block">
+                    <h3 class="video-block-title">Student Case Study 1</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Student Case Study 2</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Student Case Study 3</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Student Case Study 4</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <h3 class="video-block-title">Student Case Study 5</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="finalCta">
+            <h2 class="cta-title">If you've made it this far... it's probably time we speak.</h2>
+            <p class="cta-text">
+                You clearly see the value. Let's break down your goals and see if we're a fit to build something real — together.
+            </p>
+            <button class="cta-button" onclick="openTypeformModal()">
+                Book My Strategy Call
+            </button>
+        </section>
+    </main>
+
+    <!-- Typeform Modal -->
+    <div id="typeformModal" class="modal">
+        <div class="modal-content typeform-modal">
+            <div class="modal-header">
+                <span class="close" onclick="closeTypeformModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Typeform Embed -->
+                <iframe src="https://form.typeform.com/to/waw3Nx7c?utm_source=education&utm_medium=page&utm_campaign=final-cta" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typeform Modal Functions
+        function openTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('typeformModal');
+            if (event.target === modal) {
+                closeTypeformModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeTypeformModal();
+            }
+        });
+
+        // Intersection Observer for questions section animation
+        const questionsSection = document.getElementById('questionsSection');
+        
+        const questionsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        if (questionsSection) {
+            questionsSection.style.opacity = '0';
+            questionsSection.style.transform = 'translateY(30px)';
+            questionsSection.style.transition = 'all 0.6s ease';
+            questionsObserver.observe(questionsSection);
+        }
+
+        // Intersection Observer for final CTA animation
+        const finalCta = document.getElementById('finalCta');
+        
+        const finalCtaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        if (finalCta) {
+            finalCta.style.opacity = '0';
+            finalCta.style.transform = 'translateY(30px)';
+            finalCta.style.transition = 'all 0.6s ease';
+            finalCtaObserver.observe(finalCta);
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Ticket Ecommerce Mentorship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #EDE8E1;
+            background-color: #000000;
+        }
+
+        /* SECTION 1: HERO SECTION */
+        .hero-section {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem 0.5rem 1rem;
+            background-color: #000000;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .headline {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #EDE8E1;
+            letter-spacing: 0.02em;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subheadline {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #EDE8E1;
+            opacity: 0.9;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background-color: #1E293B;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #EDE8E1;
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
+        /* Replace this iframe with your actual Wistia video embed */
+        .wistia-video {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+        }
+
+        .wistia-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .cta-button {
+            background-color: #5B1F0F;
+            color: white;
+            border: none;
+            padding: 1.25rem 4rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+            margin-bottom: 0 !important;
+        }
+
+        .cta-button:hover {
+            background-color: #6B2A1A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* SECTION 2: MISSION SECTION */
+        .mission-section {
+            background-color: #F2EEE6;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Optional: Subtle vertical accent line */
+        .mission-content::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #5B1F0F;
+            opacity: 0.3;
+        }
+
+        .mission-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .mission-text {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 400;
+            line-height: 1.8;
+            color: #3B2F24;
+            margin: 0 0 20px 0;
+            text-align: left;
+        }
+
+        .mission-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight Classes */
+        .highlight-burgundy {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .highlight-green {
+            background-color: #2D5016;
+            color: #F6F1E9;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .highlight-emphasis {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            .mission-content {
+                text-align: left;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .mission-text {
+                text-align: left;
+                margin-bottom: 25px;
+            }
+
+            /* Desktop padding for hero section */
+            .hero-section {
+                padding: 4rem 2rem 2rem 2rem;
+            }
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 767px) {
+            .mission-content {
+                text-align: left;
+                padding: 0 20px;
+            }
+
+            .mission-text {
+                text-align: left;
+                margin-bottom: 18px;
+            }
+
+            .mission-content::before {
+                display: none;
+            }
+        }
+
+        /* SECTION 3: ABOUT ASON SECTION */
+        .about-section {
+            background-color: #000000;
+            padding: 80px 2rem;
+            color: #EDE8E1;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content {
+            padding-right: 2rem;
+        }
+
+        .about-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            line-height: 1.7;
+            color: #EDE8E1;
+            opacity: 0.9;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ason-portrait {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ason-portrait:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            margin: 4rem 0;
+        }
+
+        .timeline-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #5B1F0F, #6B2A1A);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .timeline-year {
+            background-color: #5B1F0F;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #F2EEE6 0%, #F8F4EC 50%, #F2EEE6 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 200px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 47, 36, 0.1);
+        }
+
+        .timeline-milestone {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #3B2F24;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .timeline-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #3B2F24;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .about-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button-secondary {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            border: none;
+            padding: 1.25rem 4rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        }
+
+        .cta-button-secondary:hover {
+            background-color: #4A1A0D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button-secondary:active {
+            transform: translateY(0);
+        }
+
+        /* SECTION 4: PILLARS SECTION */
+        .pillars-section {
+            background-color: #000000;
+            padding: 80px 2rem;
+            color: #EDE8E1;
+        }
+
+        .pillars-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pillars-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pillar-card {
+            background-color: #F2EEE6;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-number {
+            background-color: #5B1F0F;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        }
+
+        .pillar-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .pillar-description {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #3B2F24;
+            opacity: 0.9;
+        }
+
+        .pillars-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* SECTION 5: STUDENT RESULTS SECTION */
+        .results-section {
+            background-color: #F2EEE6;
+            padding: 80px 2rem;
+            color: #3B2F24;
+        }
+
+        .results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .results-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #3B2F24;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #E5E5E5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 2px dashed #CCC;
+        }
+
+        .testimonial-name {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 600;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .testimonial-quote {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #3B2F24;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #000000;
+            margin: 2% auto;
+            padding: 0;
+            width: 95%;
+            max-width: 600px;
+            height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .modal-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            color: #EDE8E1;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: #EDE8E1;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #1E293B;
+        }
+
+        .modal-body {
+            height: calc(100% - 80px);
+            padding: 0;
+        }
+
+        .typeform-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        /* Replace this iframe with your actual Typeform embed */
+        .typeform-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Full-screen Typeform Modal */
+        .typeform-modal {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            border-radius: 0;
+            background-color: white;
+            animation: typeformFadeIn 0.4s ease-out;
+        }
+
+        .typeform-modal .modal-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .typeform-modal .close {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .typeform-modal .close:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .typeform-modal .modal-body {
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .typeform-modal .modal-body iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        /* Typeform Animation */
+        @keyframes typeformFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile Responsive for Typeform Modal */
+        @media (max-width: 768px) {
+            .typeform-modal .close {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Final CTA Button Styles */
+        .final-cta {
+            text-align: center;
+            margin-top: 0;
+            padding: 0 2rem;
+            background-color: #F2EEE6 !important;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            border-top: none;
+            border-bottom: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta .cta-button {
+            margin: 0 auto;
+        }
+
+        /* Ensure no conflicting backgrounds */
+        .results-section .final-cta {
+            background-color: #F2EEE6 !important;
+        }
+
+        /* Mobile Responsive for Final CTA */
+        @media (max-width: 768px) {
+            .final-cta {
+                margin-top: 0;
+                padding: 0 1rem;
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                background-color: #F2EEE6 !important;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1rem;
+                min-height: 85vh;
+                padding-bottom: 1rem;
+                height: auto;
+                min-height: auto;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .hero-content {
+                margin-bottom: 0 !important;
+            }
+
+            .headline {
+                font-size: clamp(16px, 8vw, 3rem);
+                margin-bottom: 1rem;
+            }
+
+            .subheadline {
+                font-size: clamp(0.8rem, 3vw, 1rem);
+                margin-bottom: 2rem;
+            }
+
+            .video-container {
+                margin-bottom: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2.5rem;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 0;
+            }
+
+            .cta-button-secondary {
+                padding: 0.875rem 2.5rem;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 0;
+            }
+
+            .modal-content {
+                width: 98%;
+                height: 95%;
+                margin: 1% auto;
+            }
+
+            .modal-header {
+                padding: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            /* Mission section mobile adjustments */
+            .mission-section {
+                padding: 60px 1.5rem;
+            }
+
+            .mission-title {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .mission-text {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            * {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .hero-section {
+                padding: 0;
+                padding-top: 24px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 1.5rem !important;
+                margin: 0;
+                min-height: auto !important;
+                height: auto !important;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+            }
+
+            .hero-content {
+                padding-top: 1rem;
+                margin-top: 0;
+                margin-bottom: 0 !important;
+            }
+
+            .headline {
+                font-size: 20px;
+                line-height: 1.25;
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .subheadline {
+                font-size: 13px;
+                line-height: 1.25;
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .cta-button {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+
+            .mission-section {
+                padding: 50px 1rem;
+            }
+
+            .mission-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+
+            .mission-text {
+                font-size: clamp(0.95rem, 5vw, 1.1rem);
+            }
+
+            /* About section mobile adjustments */
+            .about-section {
+                padding: 50px 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .about-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+
+            .about-text {
+                font-size: clamp(0.95rem, 5vw, 1.1rem);
+            }
+
+            .image-placeholder {
+                max-width: 300px;
+            }
+
+            /* Timeline mobile adjustments */
+            .timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .timeline-content {
+                max-width: 100%;
+            }
+
+            .timeline-title {
+                font-size: clamp(1.25rem, 6vw, 1.75rem);
+                margin-bottom: 2rem;
+            }
+
+            /* Pillars section mobile adjustments */
+            .pillars-section {
+                padding: 50px 1rem;
+            }
+
+            .pillars-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+                margin-bottom: 2rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .pillar-card {
+                padding: 1.5rem;
+            }
+
+            .pillar-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .pillar-title {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+            }
+
+            .pillar-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+
+            /* Results section mobile adjustments */
+            .results-section {
+                padding: 60px 1rem;
+            }
+
+            .results-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+                margin-bottom: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-photo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 1rem;
+            }
+
+            .testimonial-name {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .testimonial-quote {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+        }
+
+        /* Kill unnecessary section padding + widen layout */
+        .section {
+            padding: 40px 0 !important;       /* top and bottom only */
+            max-width: none !important;
+            width: 100% !important;
+        }
+
+        /* Reset container or wrapper if it exists */
+        .container, .wrapper {
+            max-width: none !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+        }
+
+        /* Let h1 and p breathe */
+        h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
+
+        /* STRONG FIX: Desktop headline and subheadline width + font size */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 20px;
+                line-height: 1.3;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 10px; /* TIGHTER side padding */
+            }
+
+            p {
+                font-size: 13px;
+                line-height: 1.6;
+                max-width: 650px;
+                margin: 25px auto 0;
+                padding: 0 10px;
+            }
+
+            .section {
+                padding-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1: Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Headline -->
+            <h1 class="headline">THE RAW TRUTH ABOUT BUILDING A 6–7 FIGURE BRAND WITHOUT PLAYING THE DROPSHIPPING LOTTERY</h1>
+            
+            <!-- Embed Wistia or Loom video here -->
+            
+            <!-- Video Container -->
+            <div class="video-container">
+                <!-- WISTIA VIDEO EMBED - REPLACE THE IFRAME BELOW WITH YOUR ACTUAL WISTIA EMBED CODE -->
+                <div class="wistia-video">
+                    <iframe src="about:blank" 
+                            title="Wistia Video"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- END WISTIA VIDEO EMBED -->
+            </div>
+            
+            <!-- Subheadline -->
+            <p class="subheadline">How I scaled past $100K/month by building a real business with retention, recurring revenue, and long-term equity.</p>
+            
+            <!-- CTA Button -->
+            <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <!-- Mission Title -->
+            <h2 class="mission-title">We're not building viral stores. We're building <span class="highlight-green">businesses that print</span>.</h2>
+            
+            <!-- Mission Text -->
+            <p class="mission-text">
+                Most people treat ecom like a lottery.
+            </p>
+
+            <p class="mission-text">
+                They copy a product, slap on some Canva branding, run a few ads, and hope it works.
+            </p>
+
+            <p class="mission-text">
+                That's not what we do here.
+            </p>
+
+            <p class="mission-text">
+                We build like <span class="highlight-burgundy">real operators</span>.
+            </p>
+
+            <p class="mission-text">
+                <span class="highlight-burgundy">Real infrastructure</span>. <span class="highlight-burgundy">Real positioning</span>. <span class="highlight-burgundy">Real retention</span>.
+            </p>
+
+            <p class="mission-text">
+                Systems that don't crumble the second your CPMs jump or a supplier goes rogue.
+            </p>
+
+            <p class="mission-text">
+                And we're not slinging $30 AliExpress trash with fake urgency and hope.
+            </p>
+
+            <p class="mission-text">
+                We're selling actual products — at <span class="highlight-green">real margins</span> — using real strategy.
+            </p>
+
+            <p class="mission-text">
+                Just like <span class="highlight-green">Best Buy</span>. Just like <span class="highlight-green">Apple</span>. Just like every brand that <span class="highlight-burgundy">wins long-term</span>.
+            </p>
+
+            <p class="mission-text">
+                <span class="highlight-emphasis">This is how you win without chasing trends, hiring 5 agencies, or burning out trying to "go viral."</span>
+            </p>
+
+            <p class="mission-text">
+                Most of the info out there is <span class="highlight-burgundy">garbage</span> — outdated, copy-pasted, or coming from people who never scaled anything past a few orders.
+            </p>
+
+            <p class="mission-text">
+                The truth? New founders are actually in the best position to run this model.
+            </p>
+
+            <p class="mission-text">
+                You're not unlearning bad habits. You're starting with <span class="highlight-green">systems that actually work</span>.
+            </p>
+
+            <p class="mission-text">
+                Everything I teach is what I've used to scale multiple stores past <span class="highlight-green">$10K, $30K, even $50K days</span> — without needing to babysit everything 24/7.
+            </p>
+
+            <p class="mission-text">
+                If that sounds different from what you've heard before — it's because it is. But it works. And I'll show you how.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: About Ason Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <!-- Two-Column Layout -->
+            <div class="about-grid">
+                <!-- Left Column: Content -->
+                <div class="about-content">
+                    <h2 class="about-title">Who Is Ason?</h2>
+                    <p class="about-text">
+                        Ason's not some internet guru who popped up after going viral. He's a former U.S. Army vet who built his first six-figure brand while deployed overseas — in a literal war zone.
+                    </p>
+                    <p class="about-text">
+                        No connections. No mentorship. No rich parents. Just a cheap laptop, shit Wi-Fi, and a ridiculous amount of grit.
+                    </p>
+                    <p class="about-text">
+                        Since then, he's scaled multiple high-ticket ecom brands past $100K/month, built a reputation as the guy who makes serious brands print money, and helped dozens of others do the same.
+                    </p>
+                    <p class="about-text">
+                        No gimmicks. No fake Lambos. Just real strategy, backed by real results.
+                    </p>
+                </div>
+                
+                <!-- Right Column: Image -->
+                <div class="about-image">
+                    <img src="ason-military-portrait.jpg" alt="Ason in military uniform with tactical gear, standing in desert environment with military vehicles in background" class="ason-portrait">
+                </div>
+            </div>
+            
+            <!-- Timeline Section -->
+            <div class="timeline-container">
+                <h3 class="timeline-title">Journey Highlights</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Deployed overseas, launched first store</h4>
+                            <p class="timeline-description">Started building during active military duty. Minimal time, minimal resources — zero excuses.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Scaled to $100K/month+ with high-ticket ecom</h4>
+                            <p class="timeline-description">Not dropshipping trends. Built a real brand with retention, repeat buyers, and backend systems.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Helped scale multiple brands to 6–7 figures</h4>
+                            <p class="timeline-description">Built backend infrastructure and ad strategy for ecom operators doing $50K–$300K/month.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Still scaling his own brand — while mentoring others</h4>
+                            <p class="timeline-description">This isn't theory. Ason runs the exact business model he teaches. Teaching is the side hustle. The brand is the main thing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="about-cta">
+                <button class="cta-button-secondary" onclick="openModal()">Continue to Application</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Pillars Section -->
+    <section class="pillars-section">
+        <div class="pillars-container">
+            <!-- Section Title -->
+            <h2 class="pillars-title">Pillars of High Ticket Elites</h2>
+            
+            <!-- Four Column Grid -->
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3 class="pillar-title">Premium Products</h3>
+                    <p class="pillar-description">
+                        We don't sell $20 gadgets. We build brands with $500–$2,000 price points — offers that command real margin, and real authority.
+                    </p>
+                </div>
+                
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3 class="pillar-title">Best-in-Class Suppliers</h3>
+                    <p class="pillar-description">
+                        Not AliExpress. Real suppliers. Real backend. Your customer experience looks more like Best Buy — not a TikTok hustle gone wrong.
+                    </p>
+                </div>
+                
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h3 class="pillar-title">Scalable Infrastructure</h3>
+                    <p class="pillar-description">
+                        No trend-chasing. We build backend systems to take one hero product to $100K+ months with clean ops, upsells, and smart retention.
+                    </p>
+                </div>
+                
+                <!-- Pillar 4 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">4</div>
+                    <h3 class="pillar-title">Retention & LTV</h3>
+                    <p class="pillar-description">
+                        You're not resetting to $0 every month. This is about subscription models, repeat buyers, and stacking real long-term equity.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="pillars-cta">
+                <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Student Results Section -->
+    <section class="results-section">
+        <div class="results-container">
+            <!-- Section Title -->
+            <h2 class="results-title">Student Results</h2>
+            
+            <!-- 2x2 Testimonial Grid -->
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-photo">
+                        <span>Photo</span>
+                    </div>
+                    <h3 class="testimonial-name">Sarah Johnson</h3>
+                    <p class="testimonial-quote">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-photo">
+                        <span>Photo</span>
+                    </div>
+                    <h3 class="testimonial-name">Mike Chen</h3>
+                    <p class="testimonial-quote">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-photo">
+                        <span>Photo</span>
+                    </div>
+                    <h3 class="testimonial-name">Emily Rodriguez</h3>
+                    <p class="testimonial-quote">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-photo">
+                        <span>Photo</span>
+                    </div>
+                    <h3 class="testimonial-name">David Thompson</h3>
+                    <p class="testimonial-quote">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Apply for Mentorship</h2>
+                <button class="close-button" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="typeform-container">
+                    <!-- TYPEFORM EMBED - REPLACE THE IFRAME BELOW WITH YOUR ACTUAL TYPEFORM EMBED CODE -->
+                    <iframe class="typeform-embed"
+                            src="about:blank"
+                            title="Application Form">
+                    </iframe>
+                    <!-- END TYPEFORM EMBED -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Final CTA Button -->
+        <div class="final-cta">
+            <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- Typeform Modal -->
+    <div id="typeformModal" class="modal">
+        <div class="modal-content typeform-modal">
+            <div class="modal-header">
+                <span class="close" onclick="closeTypeformModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Typeform Embed -->
+                <iframe src="https://form.typeform.com/to/waw3Nx7c?utm_source=xxxxx&utm_medium=xxxxx&utm_campaign=xxxxx" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typeform Modal Functions
+        function openTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Legacy modal functions (keeping for compatibility)
+        function openModal() {
+            openTypeformModal();
+        }
+
+        function closeModal() {
+            closeTypeformModal();
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('typeformModal');
+            if (event.target === modal) {
+                closeTypeformModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeTypeformModal();
+            }
+        });
+    </script>
+
+    <!-- Typeform Embed Script -->
+    <script>
+        (function() {
+            var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id="typef_orm",b="https://embed.typeform.com/";
+            if(!gi.call(d,id)) {
+                js=ce.call(d,"script");
+                js.id=id;
+                js.src=b+"embed.js";
+                q=gt.call(d,"script")[0];
+                q.parentNode.insertBefore(js,q);
+            }
+        })();
+    </script>
+</body>
+</html> 
