@@ -571,6 +571,8 @@
             font-style: italic;
         }
 
+
+
         /* Modal Styles */
         .modal {
             display: none;
@@ -721,6 +723,243 @@
             width: 100%;
             height: 100vh;
             border: none;
+        }
+
+        /* Video Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .video-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            width: 90%;
+            max-width: 800px;
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .video-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+            background-color: #F6F1E9;
+            border-bottom: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .video-modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #5B1F0F;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .video-modal-close:hover {
+            background-color: rgba(91, 31, 15, 0.1);
+            transform: scale(1.1);
+        }
+
+        .video-modal-body {
+            padding: 0;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-modal-body iframe,
+        .video-modal-body wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Testimonial Image Styling */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            justify-items: center;
+        }
+
+        .testimonial-card {
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3B2F24;
+            padding: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #5B1F0F;
+            padding: 0 1rem 1rem 1rem;
+            margin: 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Video Thumbnail Styling */
+        .video-thumbnail-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-icon {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .testimonial-card:hover .play-button-overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Video Testimonials Grid */
+        .video-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .video-testimonial-card {
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .video-testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-testimonial-card .video-thumbnail-container {
+            height: 400px;
+        }
+
+        /* Responsive Design for Testimonials */
+        @media (max-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .testimonial-image,
+            .video-thumbnail-container {
+                height: 350px;
+            }
+
+            .video-testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 500px;
+                margin: 2rem auto;
+            }
+            
+            .testimonial-image,
+            .video-thumbnail-container {
+                height: 300px;
+            }
+
+            .video-testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 500px;
+                margin: 2rem auto;
+            }
         }
 
         /* Typeform Animation */
@@ -1046,6 +1285,8 @@
             width: 100% !important;
         }
 
+
+
         /* Reset container or wrapper if it exists */
         .container, .wrapper {
             max-width: none !important;
@@ -1322,50 +1563,230 @@
             <!-- Section Title -->
             <h2 class="results-title">Student Results</h2>
             
-            <!-- 2x2 Testimonial Grid -->
+            <!-- Video Testimonials -->
+            <div class="video-testimonials-grid">
+                <!-- Ben Testimonial Video -->
+                <div class="video-testimonial-card" onclick="openVideoModal('gzsxyf4ryp', 'wistia', 'Ben Testimonial ($0 - $50k)')">
+                    <div class="video-thumbnail-container">
+                        <img src="https://fast.wistia.com/embed/medias/gzsxyf4ryp/swatch" alt="Ben Testimonial Preview" class="video-thumbnail">
+                        <div class="play-button-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <h3 class="testimonial-name">Ben Testimonial ($0 - $50k)</h3>
+                    <p class="testimonial-quote">
+                        "Watch Ben's journey from $0 to $50k in our program."
+                    </p>
+                </div>
+                
+                <!-- Kenny Testimonial Video -->
+                <div class="video-testimonial-card" onclick="openVideoModal('583px6guy5', 'wistia', 'Kenny Testimonial ($200k / mo)')">
+                    <div class="video-thumbnail-container">
+                        <img src="https://fast.wistia.com/embed/medias/583px6guy5/swatch" alt="Kenny Testimonial Preview" class="video-thumbnail">
+                        <div class="play-button-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <h3 class="testimonial-name">Kenny Testimonial ($200k / mo)</h3>
+                    <p class="testimonial-quote">
+                        "See how Kenny achieved $200k/month results."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Picture Testimonials Grid -->
             <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
-                    <div class="testimonial-photo">
-                        <span>Photo</span>
-                    </div>
-                    <h3 class="testimonial-name">Sarah Johnson</h3>
-                    <p class="testimonial-quote">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    </p>
+                    <img src="Program Results/IMG_0667 (1).jpg" alt="Student Results" class="testimonial-image">
                 </div>
-                
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <div class="testimonial-photo">
-                        <span>Photo</span>
-                    </div>
-                    <h3 class="testimonial-name">Mike Chen</h3>
-                    <p class="testimonial-quote">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    </p>
+                    <img src="Program Results/IMG_7395.PNG" alt="Student Results" class="testimonial-image">
                 </div>
-                
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
-                    <div class="testimonial-photo">
-                        <span>Photo</span>
-                    </div>
-                    <h3 class="testimonial-name">Emily Rodriguez</h3>
-                    <p class="testimonial-quote">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    </p>
+                    <img src="Program Results/IMG_0667.jpg" alt="Student Results" class="testimonial-image">
                 </div>
-                
-                <!-- Testimonial 4 -->
                 <div class="testimonial-card">
-                    <div class="testimonial-photo">
-                        <span>Photo</span>
-                    </div>
-                    <h3 class="testimonial-name">David Thompson</h3>
-                    <p class="testimonial-quote">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    </p>
+                    <img src="Program Results/06BB1CE4-7555-4C91-9972-61B1EDF2061E.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0829.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1486.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3114.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3115.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4253.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_6265.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_7603.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_9668.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5004.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5500.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1296.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1297.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1630.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (69).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5826.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5827.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (65).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_2722.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_8891 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0859.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5748.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0064.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4497.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5620.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5176.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5386.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4711.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5175.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5619.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3662.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (64).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (63).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (62).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (61).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4688.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4687.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (58).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (57).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (56).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (1).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/MARCH15.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG-2753.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/marresult.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (3).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/cam 2 orders while sleeping.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/No ads sale.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (4).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (3).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (2).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG-2129 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (1).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (5).jpg" alt="Student Results" class="testimonial-image">
                 </div>
             </div>
         </div>
@@ -1396,6 +1817,18 @@
             <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-modal-body" id="videoModalBody">
+                <!-- Video content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Typeform Modal -->
     <div id="typeformModal" class="modal">
@@ -1443,6 +1876,68 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeTypeformModal();
+                closeVideoModal();
+            }
+        });
+
+        // Video Modal Functions
+        function openVideoModal(videoId, videoType, videoTitle) {
+            const modal = document.getElementById('videoModal');
+            const modalBody = document.getElementById('videoModalBody');
+            
+            // Clear previous content
+            modalBody.innerHTML = '';
+            
+            if (videoType === 'wistia') {
+                // Create Wistia embed
+                const wistiaScript = document.createElement('script');
+                wistiaScript.src = 'https://fast.wistia.com/player.js';
+                wistiaScript.async = true;
+                
+                const wistiaEmbed = document.createElement('script');
+                wistiaEmbed.src = `https://fast.wistia.com/embed/${videoId}.js`;
+                wistiaEmbed.async = true;
+                wistiaEmbed.type = 'module';
+                
+                const wistiaPlayer = document.createElement('wistia-player');
+                wistiaPlayer.setAttribute('media-id', videoId);
+                wistiaPlayer.setAttribute('aspect', '1.7777777777777777');
+                
+                modalBody.appendChild(wistiaScript);
+                modalBody.appendChild(wistiaEmbed);
+                modalBody.appendChild(wistiaPlayer);
+            } else if (videoType === 'youtube') {
+                // Create YouTube embed
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.frameBorder = '0';
+                iframe.allowFullscreen = true;
+                
+                modalBody.appendChild(iframe);
+            }
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalBody = document.getElementById('videoModalBody');
+            
+            // Clear video content to stop playback
+            modalBody.innerHTML = '';
+            
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close video modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeVideoModal();
             }
         });
     </script>
