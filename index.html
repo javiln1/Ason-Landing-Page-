@@ -523,19 +523,6 @@
             gap: 2rem;
         }
 
-        .testimonial-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-        }
 
         .testimonial-photo {
             width: 80px;
@@ -805,51 +792,19 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 2rem 0;
-            justify-items: center;
-        }
-
-        .testimonial-card {
-            background-color: #F6F1E9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(91, 31, 15, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
             width: 100%;
-            max-width: 100%;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .testimonial-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             display: block;
+            transition: transform 0.3s ease;
         }
 
-        .testimonial-name {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #3B2F24;
-            padding: 1rem;
-            margin: 0;
-            text-align: center;
-        }
-
-        .testimonial-quote {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            color: #5B1F0F;
-            padding: 0 1rem 1rem 1rem;
-            margin: 0;
-            text-align: center;
-            line-height: 1.4;
+        .testimonial-image:hover {
+            transform: scale(1.02);
         }
 
         /* Video Thumbnail Styling */
@@ -930,9 +885,8 @@
                 gap: 1.5rem;
             }
             
-            .testimonial-image,
             .video-thumbnail-container {
-                height: 350px;
+                height: 250px;
             }
 
             .video-testimonials-grid {
@@ -944,14 +898,8 @@
         @media (max-width: 768px) {
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-                max-width: 500px;
-                margin: 2rem auto;
-            }
-            
-            .testimonial-image,
-            .video-thumbnail-container {
-                height: 300px;
+                gap: 1.5rem;
+                margin: 2rem 0;
             }
 
             .video-testimonials-grid {
@@ -1257,24 +1205,6 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-            }
-
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-
-            .testimonial-photo {
-                width: 70px;
-                height: 70px;
-                margin-bottom: 1rem;
-            }
-
-            .testimonial-name {
-                font-size: clamp(1rem, 4vw, 1.2rem);
-            }
-
-            .testimonial-quote {
-                font-size: clamp(0.9rem, 3vw, 1rem);
             }
         }
 
@@ -1591,198 +1521,70 @@
 
             <!-- Picture Testimonials Grid -->
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_0667 (1).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_7395.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_0667.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/06BB1CE4-7555-4C91-9972-61B1EDF2061E.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_0829.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_1486.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_3114.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_3115.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_4253.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_6265.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_7603.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_9668.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5004.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5500.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_1296.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_1297.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_1630.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (69).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5826.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5827.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (65).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_2722.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_8891 (1).PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_0859.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5748.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_0064.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_4497.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5620.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5176.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5386.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_4711.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5175.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_5619.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_3662.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (64).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (63).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (62).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (61).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_4688.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG_4687.PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (58).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (57).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (56).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (1).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/MARCH15.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG-2753.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/marresult.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (3).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/cam 2 orders while sleeping.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/No ads sale.jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (4).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (3).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (2).PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (1).PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/IMG-2129 (1).PNG" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (1).jpg" alt="Student Results" class="testimonial-image">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/SR1 (5).jpg" alt="Student Results" class="testimonial-image">
-                </div>
+                <img src="Program Results/IMG_0667 (1).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_7395.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_0667.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/06BB1CE4-7555-4C91-9972-61B1EDF2061E.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_0829.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_1486.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_3114.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_3115.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_4253.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_6265.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_7603.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_9668.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5004.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5500.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_1296.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_1297.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_1630.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (69).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5826.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5827.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (65).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_2722.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_8891 (1).PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_0859.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5748.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_0064.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_4497.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5620.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5176.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5386.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_4711.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5175.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_5619.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_3662.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (64).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (63).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (62).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (61).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_4688.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG_4687.PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (58).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (57).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (56).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (1).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/MARCH15.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG-2753.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/marresult.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (3).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/cam 2 orders while sleeping.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/No ads sale.jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (4).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (3).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (2).PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (1).PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/IMG-2129 (1).PNG" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (1).jpg" alt="Student Results" class="testimonial-image">
+                <img src="Program Results/SR1 (5).jpg" alt="Student Results" class="testimonial-image">
             </div>
         </div>
     </section>
