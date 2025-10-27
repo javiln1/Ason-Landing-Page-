@@ -62,6 +62,62 @@
             padding: 4rem 2rem;
         }
 
+        /* Hero Video Section */
+        .hero-video-section {
+            background-color: #000000;
+            padding: 4rem 2rem;
+            margin: 0;
+            max-width: none;
+        }
+
+        .hero-video-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-video-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-video-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #EDE8E1;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .hero-video-container iframe,
+        .hero-video-container wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .education-section {
             background-color: #F2EEE6;
             color: #3B2F24;
@@ -635,18 +691,56 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .hero-video-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .hero-video-title {
+                font-size: clamp(1.75rem, 7vw, 2.2rem);
+                margin-bottom: 1.25rem;
+                line-height: 1.15;
+            }
+
+            .hero-video-subtitle {
+                font-size: clamp(1rem, 4.5vw, 1.15rem);
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            .hero-video-container {
+                border-radius: 8px;
+                margin-bottom: 0;
+            }
+
             .main-content {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1.25rem;
             }
 
             .education-section {
-                padding: 2rem;
+                padding: 1.75rem;
                 margin-bottom: 2rem;
+                border-radius: 12px;
             }
 
             .video-section {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
                 margin-bottom: 2rem;
+                border-radius: 12px;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 1.85rem);
+                margin-bottom: 1.25rem;
+            }
+
+            .section-text {
+                font-size: clamp(0.95rem, 4vw, 1.05rem);
+                margin-bottom: 1.5rem;
             }
 
             .principles-grid {
@@ -659,13 +753,51 @@
                 gap: 1.5rem;
             }
 
+            .video-block {
+                border-radius: 10px;
+            }
+
+            .video-block-title {
+                font-size: 1.05rem;
+                padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+            }
+
             .questions-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                border-radius: 10px;
+            }
+
+            .testimonial-image {
+                height: 250px;
+            }
+
             .cta-section {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+            }
+
+            .cta-title {
+                font-size: clamp(1.5rem, 6vw, 1.85rem);
+            }
+
+            .cta-text {
+                font-size: clamp(0.95rem, 4vw, 1.05rem);
+            }
+
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.05rem;
+                width: 100%;
+                max-width: 320px;
             }
 
             .hidden-cta {
@@ -685,11 +817,11 @@
                 width: 95%;
                 margin: 0 auto;
                 max-width: none;
-                /* Keep centered positioning on mobile */
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                border-radius: 12px;
             }
 
             .video-modal-header {
@@ -702,16 +834,66 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* Extra Small Mobile (iPhone SE, etc) */
+        @media (max-width: 480px) {
+            .hero-video-section {
+                padding: 2rem 1rem;
+            }
+
+            .hero-video-title {
+                font-size: 1.65rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-video-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.5;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .video-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .section-text {
+                font-size: 0.9rem;
+            }
+
+            .video-block-title {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="header-title">High-Ticket Ecom Education</h1>
-            <p class="header-subtitle">Essential principles for building a real business</p>
+    <!-- Hero Video Section -->
+    <section class="hero-video-section">
+        <div class="hero-video-content">
+            <h1 class="hero-video-title">Watch This Before Your Call</h1>
+            <p class="hero-video-subtitle">This video is required viewing before our call. It covers the essential foundation of our high-ticket ecom system and what makes this approach different.</p>
+
+            <div class="hero-video-container">
+                <script src="https://fast.wistia.com/player.js" async></script>
+                <script src="https://fast.wistia.com/embed/pdtc5v4po5.js" async type="module"></script>
+                <style>wistia-player[media-id='pdtc5v4po5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pdtc5v4po5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                <wistia-player media-id="pdtc5v4po5" aspect="1.7777777777777777"></wistia-player>
+            </div>
         </div>
-    </header>
+    </section>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -794,8 +976,8 @@
 
         <!-- Section 2: High-Ticket Ecom Foundation -->
         <section class="video-section">
-            <h2 class="section-title">High-Ticket Ecom: Foundation & Education</h2>
-            <p class="section-text">Watch these to understand how Ason builds real brands with real retention — not trends.</p>
+            <h2 class="section-title">Additional Resources to Maximize Your Call</h2>
+            <p class="section-text">These videos aren't mandatory, but watching them will help you get even more value from our conversation. The more prepared you are, the better results we'll achieve together.</p>
             
             <div class="video-grid">
                 <div class="video-block" onclick="openVideoModal('hbd86qmmjp', 'wistia', 'High Ticket Dropshipping System')">
