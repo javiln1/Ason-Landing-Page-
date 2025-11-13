@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Ticket Ecom Education - Ason's Mentorship</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- UTM Capture & Persistence Utility -->
+    <script src="js/utm.js"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1410609885939308');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410609885939308&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #EDE8E1;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #000000;
+            padding: 2rem 0;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #EDE8E1;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Video Section */
+        .hero-video-section {
+            background-color: #000000;
+            padding: 4rem 2rem;
+            margin: 0;
+            max-width: none;
+        }
+
+        .hero-video-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-video-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-video-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #EDE8E1;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .hero-video-container iframe,
+        .hero-video-container wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .education-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .section-text {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #3B2F24;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #F6F1E9;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #F6F1E9;
+            font-weight: bold;
+        }
+
+        /* Key Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background-color: #F6F1E9;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #5B1F0F;
+        }
+
+        .principle-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+        }
+
+        .principle-text {
+            font-size: 0.95rem;
+            color: #3B2F24;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .cta-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #3B2F24;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #3B2F24;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background-color: #5B1F0F;
+            color: #F6F1E9;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #4A1A0D;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4);
+        }
+
+        /* Video Sections */
+        .video-section {
+            background-color: #F2EEE6;
+            color: #3B2F24;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .video-container iframe,
+        .video-container wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .video-block {
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .video-block-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #3B2F24;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            margin: 0;
+        }
+
+        .video-block-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .video-block-container iframe,
+        .video-block-container wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        /* Questions Section */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .question-video {
+            margin-bottom: 1.5rem;
+        }
+
+        .question-video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .question-video-container iframe,
+        .question-video-container wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        .question-caption {
+            font-size: 0.9rem;
+            color: #5B1F0F;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        /* Testimonial Image Styling */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .testimonial-card {
+            background-color: #F6F1E9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3B2F24;
+            padding: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Typeform Inline Embed Styles */
+        .typeform-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(91, 31, 15, 0.1);
+        }
+
+        .typeform-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #000000;
+            margin: 2% auto;
+            padding: 0;
+            width: 95%;
+            max-width: 600px;
+            height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            color: #EDE8E1;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .close:hover {
+            background-color: #1E293B;
+        }
+
+        .modal-body {
+            height: calc(100% - 80px);
+            padding: 0;
+        }
+
+        /* Full-screen Typeform Modal */
+        .typeform-modal {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            border-radius: 0;
+            background-color: white;
+            animation: typeformFadeIn 0.4s ease-out;
+        }
+
+        .typeform-modal .modal-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .typeform-modal .close {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .typeform-modal .close:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .typeform-modal .modal-body {
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .typeform-modal .modal-body iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes typeformFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Video Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+            animation: videoModalFadeIn 0.3s ease;
+        }
+
+        .video-modal-content {
+            position: relative;
+            background-color: #000000;
+            margin: 0 auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            animation: videoModalSlideIn 0.3s ease;
+            /* Center the modal vertically */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .video-modal-close {
+            background: none;
+            border: none;
+            color: #EDE8E1;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background-color: rgba(30, 41, 59, 0.5);
+        }
+
+        .video-modal-close:hover {
+            background-color: #1E293B;
+            transform: scale(1.1);
+        }
+
+        .video-modal-body {
+            padding: 0;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-modal-body iframe,
+        .video-modal-body wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0 0 15px 15px;
+        }
+
+        /* Video Block Clickable Styles */
+        .video-block,
+        .question-video {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-block:hover,
+        .question-video:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-block:active,
+        .question-video:active {
+            transform: translateY(-1px);
+        }
+
+        /* Video Modal Animations */
+        @keyframes videoModalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes videoModalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .hero-video-section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .hero-video-title {
+                font-size: clamp(1.75rem, 7vw, 2.2rem);
+                margin-bottom: 1.25rem;
+                line-height: 1.15;
+            }
+
+            .hero-video-subtitle {
+                font-size: clamp(1rem, 4.5vw, 1.15rem);
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            .hero-video-container {
+                border-radius: 8px;
+                margin-bottom: 0;
+            }
+
+            .main-content {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .education-section {
+                padding: 1.75rem;
+                margin-bottom: 2rem;
+                border-radius: 12px;
+            }
+
+            .video-section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+                border-radius: 12px;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 1.85rem);
+                margin-bottom: 1.25rem;
+            }
+
+            .section-text {
+                font-size: clamp(0.95rem, 4vw, 1.05rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .video-block {
+                border-radius: 10px;
+            }
+
+            .video-block-title {
+                font-size: 1.05rem;
+                padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                border-radius: 10px;
+            }
+
+            .testimonial-image {
+                height: 250px;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+            }
+
+            .cta-title {
+                font-size: clamp(1.5rem, 6vw, 1.85rem);
+            }
+
+            .cta-text {
+                font-size: clamp(0.95rem, 4vw, 1.05rem);
+            }
+
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.05rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hidden-cta {
+                padding: 1.5rem;
+            }
+
+            .typeform-modal .close {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            /* Mobile Video Modal Adjustments */
+            .video-modal-content {
+                width: 95%;
+                margin: 0 auto;
+                max-width: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 12px;
+            }
+
+            .video-modal-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .video-modal-close {
+                width: 35px;
+                height: 35px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Extra Small Mobile (iPhone SE, etc) */
+        @media (max-width: 480px) {
+            .hero-video-section {
+                padding: 2rem 1rem;
+            }
+
+            .hero-video-title {
+                font-size: 1.65rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-video-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.5;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .video-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .section-text {
+                font-size: 0.9rem;
+            }
+
+            .video-block-title {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Video Section -->
+    <section class="hero-video-section">
+        <div class="hero-video-content">
+            <h1 class="hero-video-title">Watch This Before Your Call</h1>
+            <p class="hero-video-subtitle">This video is required viewing before our call. It covers the essential foundation of our high-ticket ecom system and what makes this approach different.</p>
+
+            <div class="hero-video-container">
+                <script src="https://fast.wistia.com/player.js" async></script>
+                <script src="https://fast.wistia.com/embed/pdtc5v4po5.js" async type="module"></script>
+                <style>wistia-player[media-id='pdtc5v4po5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pdtc5v4po5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                <wistia-player media-id="pdtc5v4po5" aspect="1.7777777777777777"></wistia-player>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Section 1: What Happens After You Apply -->
+        <!-- TEMPORARILY HIDDEN - EASY TO RESTORE -->
+        <!--
+        <section class="video-section">
+            <h2 class="section-title">What Happens After You Apply</h2>
+            <p class="section-text">Start here. This short video explains exactly what happens next and how this process works.</p>
+            
+            <div class="video-block" onclick="openVideoModal('apply-process', 'youtube', 'What Happens After You Apply')">
+                <h3 class="video-block-title">What Happens After You Apply</h3>
+                <div class="video-block-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Section 1.5: Still Got Questions? -->
+        <!-- TEMPORARILY HIDDEN - EASY TO RESTORE -->
+        <!--
+        <section class="video-section" id="questionsSection">
+            <h2 class="section-title">Still Got Questions?</h2>
+            <p class="section-text">Here's Ason answering the most common questions we get from new applicants — fast, raw, and straight to the point.</p>
+            
+            <div class="video-grid">
+                <div class="video-block" onclick="openVideoModal('question-1', 'youtube', 'Is this better than dropshipping?')">
+                    <h3 class="video-block-title">Is this better than dropshipping?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-2', 'youtube', 'How long does it take to see results?')">
+                    <h3 class="video-block-title">How long does it take to see results?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-3', 'youtube', 'What if I have no experience?')">
+                    <h3 class="video-block-title">What if I have no experience?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-4', 'youtube', 'How much should I invest initially?')">
+                    <h3 class="video-block-title">How much should I invest initially?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-5', 'youtube', 'What makes this different from other programs?')">
+                    <h3 class="video-block-title">What makes this different from other programs?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-6', 'youtube', 'Do you guarantee results?')">
+                    <h3 class="video-block-title">Do you guarantee results?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-7', 'youtube', 'What\'s the time commitment?')">
+                    <h3 class="video-block-title">What's the time commitment?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('question-8', 'youtube', 'Can I do this part-time?')">
+                    <h3 class="video-block-title">Can I do this part-time?</h3>
+                    <div class="video-block-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Section 2: High-Ticket Ecom Foundation -->
+        <section class="video-section">
+            <h2 class="section-title">Additional Resources to Maximize Your Call</h2>
+            <p class="section-text">These videos aren't mandatory, but watching them will help you get even more value from our conversation. The more prepared you are, the better results we'll achieve together.</p>
+            
+            <div class="video-grid">
+                <div class="video-block" onclick="openVideoModal('hbd86qmmjp', 'wistia', 'High Ticket Dropshipping System')">
+                    <h3 class="video-block-title">High Ticket Dropshipping System</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/hbd86qmmjp.js" async type="module"></script>
+                        <style>wistia-player[media-id='hbd86qmmjp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/hbd86qmmjp/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
+                        <wistia-player media-id="hbd86qmmjp" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('uab7r5xk32', 'wistia', 'High Level Branding Training')">
+                    <h3 class="video-block-title">High Level Branding Training</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/uab7r5xk32.js" async type="module"></script>
+                        <style>wistia-player[media-id='uab7r5xk32']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/uab7r5xk32/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
+                        <wistia-player media-id="uab7r5xk32" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('yr7fmzmlcm', 'wistia', 'How to Find High Ticket Products')">
+                    <h3 class="video-block-title">How to Find High Ticket Products</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/yr7fmzmlcm.js" async type="module"></script>
+                        <style>wistia-player[media-id='yr7fmzmlcm']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/yr7fmzmlcm/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
+                        <wistia-player media-id="yr7fmzmlcm" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('2kq5gshvnq', 'wistia', 'How to Start Dropshipping')">
+                    <h3 class="video-block-title">How to Start Dropshipping</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/2kq5gshvnq.js" async type="module"></script>
+                        <style>wistia-player[media-id='2kq5gshvnq']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2kq5gshvnq/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
+                        <wistia-player media-id="2kq5gshvnq" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('ezcuse1xdw', 'wistia', 'Sales Strategy')">
+                    <h3 class="video-block-title">Sales Strategy</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/ezcuse1xdw.js" async type="module"></script>
+                        <style>wistia-player[media-id='ezcuse1xdw']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ezcuse1xdw/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
+                        <wistia-player media-id="ezcuse1xdw" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Student Results & Proof -->
+        <section class="video-section">
+            <h2 class="section-title">Student Results & Proof</h2>
+            <p class="section-text">No fluff. Just real people, real results, and real brands built from scratch.</p>
+            
+            <div class="video-grid">
+                <div class="video-block" onclick="openVideoModal('gzsxyf4ryp', 'wistia', 'Ben Testimonial ($0 - $50k)')">
+                    <h3 class="video-block-title">Ben Testimonial ($0 - $50k)</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/gzsxyf4ryp.js" async type="module"></script>
+                        <style>wistia-player[media-id='gzsxyf4ryp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/gzsxyf4ryp/swatch'); display: block; filter: blur(5px); padding-top:177.5%; }</style>
+                        <wistia-player media-id="gzsxyf4ryp" aspect="0.5633802816901409"></wistia-player>
+                    </div>
+                </div>
+                <div class="video-block" onclick="openVideoModal('583px6guy5', 'wistia', 'Kenny Testimonial ($200k / mo)')">
+                    <h3 class="video-block-title">Kenny Testimonial ($200k / mo)</h3>
+                    <div class="video-block-container">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/583px6guy5.js" async type="module"></script>
+                        <style>wistia-player[media-id='583px6guy5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/583px6guy5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="583px6guy5" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Picture Testimonials Grid -->
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0667 (1).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_7395.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0667.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/06BB1CE4-7555-4C91-9972-61B1EDF2061E.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0829.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1486.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3114.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3115.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4253.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_6265.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_7603.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_9668.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5004.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5500.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1296.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1297.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_1630.jpg.jpeg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (69).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5826.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5827.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (65).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_2722.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_8891 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0859.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5748.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_0064.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4497.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5620.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5176.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5386.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4711.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5175.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_5619.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_3662.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (64).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (63).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (62).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (61).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4688.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_4687.PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (58).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (57).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (56).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (1).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/MARCH15.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG-2753.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/marresult.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/038ef7db21e686fbdedc60a361701e8f.png" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/03f38000794e412e47387cb7eb08d633.png" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG_8886.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (3).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/cam 2 orders while sleeping.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/No ads sale.jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (4).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (3).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (2).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/IMG-2129 (1).PNG" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (1).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/SR1 (5).jpg" alt="Student Results" class="testimonial-image">
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-modal-body" id="videoModalBody">
+                <!-- Video content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <button class="video-modal-close" onclick="closeImageModal()">&times;</button>
+            </div>
+            <div class="video-modal-body">
+                <img id="modalImage" src="" alt="Student Results" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Typeform Modal -->
+    <div id="typeformModal" class="modal">
+        <div class="modal-content typeform-modal">
+            <div class="modal-header">
+                <span class="close" onclick="closeTypeformModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Typeform Embed -->
+                <iframe src="https://form.typeform.com/to/waw3Nx7c" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typeform Modal Functions
+        function openTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('typeformModal');
+            if (event.target === modal) {
+                closeTypeformModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeTypeformModal();
+            }
+        });
+
+        // Intersection Observer for questions section animation
+        const questionsSection = document.getElementById('questionsSection');
+        
+        const questionsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        if (questionsSection) {
+            questionsSection.style.opacity = '0';
+            questionsSection.style.transform = 'translateY(30px)';
+            questionsSection.style.transition = 'all 0.6s ease';
+            questionsObserver.observe(questionsSection);
+        }
+
+        // Video Modal Functions
+        function openVideoModal(videoId, videoType, videoTitle) {
+            const modal = document.getElementById('videoModal');
+            const modalBody = document.getElementById('videoModalBody');
+            
+            // Clear previous content
+            modalBody.innerHTML = '';
+            
+            // Create video content based on type
+            if (videoType === 'wistia') {
+                // For Wistia videos, we need to load the scripts dynamically
+                const wistiaScript = document.createElement('script');
+                wistiaScript.src = 'https://fast.wistia.com/player.js';
+                wistiaScript.async = true;
+                
+                const embedScript = document.createElement('script');
+                embedScript.src = `https://fast.wistia.com/embed/${videoId}.js`;
+                embedScript.async = true;
+                embedScript.type = 'module';
+                
+                const wistiaPlayer = document.createElement('wistia-player');
+                wistiaPlayer.setAttribute('media-id', videoId);
+                wistiaPlayer.setAttribute('aspect', '1.7777777777777777');
+                
+                modalBody.appendChild(wistiaScript);
+                modalBody.appendChild(embedScript);
+                modalBody.appendChild(wistiaPlayer);
+                
+                // Add loading style
+                const style = document.createElement('style');
+                style.textContent = `wistia-player[media-id='${videoId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${videoId}/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`;
+                modalBody.appendChild(style);
+                
+            } else if (videoType === 'youtube') {
+                // For YouTube videos, use the same embed URL pattern
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', 'true');
+                modalBody.appendChild(iframe);
+            }
+            
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalBody = document.getElementById('videoModalBody');
+            
+            // Clear video content to stop playback
+            modalBody.innerHTML = '';
+            
+            // Hide modal
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close video modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeVideoModal();
+            }
+        });
+
+        // Close video modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideoModal();
+                closeImageModal();
+            }
+        });
+
+        // Image Modal Functions
+        function openImageModal(imageSrc, imageTitle) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = imageTitle;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Intersection Observer for final CTA animation
+        const finalCta = document.getElementById('finalCta');
+        
+        const finalCtaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        if (finalCta) {
+            finalCta.style.opacity = '0';
+            finalCta.style.transform = 'translateY(30px)';
+            finalCta.style.transition = 'all 0.6s ease';
+            finalCtaObserver.observe(finalCta);
+        }
+    </script>
+</body>
+</html> 
