@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Ticket Elites — Build a Real eCommerce Empire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- UTM Capture & Persistence Utility -->
+    <script src="js/utm.js"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1410609885939308');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410609885939308&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        /* ========================================
+           CSS VARIABLES — LUXURY DESIGN SYSTEM
+        ======================================== */
+        :root {
+            --bg-primary: #0a0908;
+            --bg-secondary: #141210;
+            --bg-card: #1a1714;
+            --bg-card-hover: #221e19;
+            --text-primary: #f5f0e8;
+            --text-secondary: #a89f94;
+            --accent-burgundy: #5b1f0f;
+            --accent-burgundy-hover: #6b2a1a;
+            --accent-gold: #d4a574;
+            --accent-gold-dim: rgba(212, 165, 116, 0.3);
+            --accent-gold-glow: rgba(212, 165, 116, 0.15);
+            --bg-cream: #f2eee6;
+            --text-dark: #3b2f24;
+            --border-subtle: rgba(212, 165, 116, 0.12);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Cormorant Garamond', serif;
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay on dark sections */
+        .noise-overlay {
+            position: relative;
+        }
+        .noise-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 256px 256px;
+            z-index: 1;
+        }
+        .noise-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        /* ========================================
+           SECTION SHARED
+        ======================================== */
+        .section-pad {
+            padding: 100px 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section-badge {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid var(--accent-gold-dim);
+            padding: 0.4em 1.2em;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-gold); }
+
+        /* ========================================
+           REVEAL ANIMATIONS
+        ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Gold shimmer on headline */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, var(--accent-gold) 0%, #f0d9b5 40%, var(--accent-gold) 60%, #f0d9b5 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 6s linear infinite;
+        }
+
+        /* CTA glow pulse */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.2), 0 0 40px rgba(212, 165, 116, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(212, 165, 116, 0.35), 0 0 60px rgba(212, 165, 116, 0.15); }
+        }
+
+        /* ========================================
+           0. STICKY NAV
+        ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .nav.scrolled {
+            background: rgba(10, 9, 8, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+        .nav-logo strong {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        .nav-cta {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            background: var(--accent-gold);
+            padding: 0.6em 1.6em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover {
+            background: #e0b68a;
+            transform: translateY(-1px);
+        }
+
+        /* ========================================
+           1. HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 40%, rgba(91, 31, 15, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 70% 60%, rgba(212, 165, 116, 0.06) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+        .hero-content {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+        .hero-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            background: var(--accent-gold);
+            padding: 1em 2.5em;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        .btn-gold:hover {
+            background: #e0b68a;
+            transform: translateY(-2px);
+        }
+        .btn-ghost {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            background: transparent;
+            border: 1px solid var(--accent-gold-dim);
+            padding: 1em 2.5em;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .btn-ghost:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Video container with gold corner frames */
+        .video-frame {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+        .video-frame::before,
+        .video-frame::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-gold);
+            pointer-events: none;
+            z-index: 3;
+        }
+        .video-frame::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+        .video-frame::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+        .video-inner {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .video-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .wistia-video-wrap {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .wistia-video-wrap wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video placeholder template */
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background:
+                radial-gradient(ellipse 60% 60% at 50% 50%, rgba(212, 165, 116, 0.06) 0%, transparent 70%),
+                linear-gradient(135deg, #1a1714 0%, #0f0e0c 50%, #1a1714 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+        }
+        .video-placeholder:hover {
+            border-color: var(--accent-gold-dim);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 165, 116, 0.08);
+        }
+        .video-placeholder:hover .vp-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--accent-gold);
+            box-shadow: 0 0 40px rgba(212, 165, 116, 0.4);
+        }
+        .vp-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 165, 116, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 30px rgba(212, 165, 116, 0.3);
+            z-index: 2;
+        }
+        .vp-play-btn svg {
+            margin-left: 4px;
+        }
+        .vp-label {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            white-space: nowrap;
+            z-index: 2;
+        }
+        .vp-duration {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            z-index: 2;
+        }
+
+        /* Floating stat badges */
+        .hero-badge {
+            position: absolute;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 0.6rem 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            z-index: 4;
+        }
+        .hero-badge .badge-icon {
+            font-size: 1.2rem;
+        }
+        .hero-badge .badge-value {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+        .hero-badge .badge-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .badge-top-left {
+            top: -10px;
+            left: -20px;
+        }
+        .badge-bottom-right {
+            bottom: -10px;
+            right: -20px;
+        }
+
+        /* ========================================
+           2. STATS BAR
+        ======================================== */
+        .stats-bar {
+            padding: 60px 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .stats-disclaimer {
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        /* ========================================
+           3. PROOF THAT SPEAKS
+        ======================================== */
+        .proof-section {
+            background:
+                radial-gradient(ellipse 50% 30% at 50% 20%, rgba(91, 31, 15, 0.08) 0%, transparent 70%),
+                var(--bg-primary);
+        }
+        .proof-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .proof-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+        .proof-card-badge {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.08);
+            padding: 0.3em 0.8em;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .proof-card-number {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+        .proof-card-desc {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Quote testimonials */
+        .proof-quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .quote-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .quote-mark {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.4;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .quote-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .quote-author {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+        .quote-role {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Testimonial image grid */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .testimonial-grid.collapsed {
+            max-height: 900px;
+            overflow: hidden;
+            position: relative;
+        }
+        .testimonial-grid.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+            pointer-events: none;
+        }
+        .testimonial-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease;
+        }
+        .testimonial-img:hover {
+            transform: scale(1.02);
+        }
+        .show-more-wrap {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .btn-show-more {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: transparent;
+            border: 1px solid var(--accent-gold-dim);
+            padding: 0.8em 2em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-show-more:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.05);
+        }
+
+        /* ========================================
+           4. WHAT THIS IS (MISSION) — cream panel
+        ======================================== */
+        .mission-section {
+            padding: 100px 2rem;
+            background: var(--bg-primary);
+        }
+        .mission-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-cream);
+            border-radius: 16px;
+            padding: 4rem 3.5rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .mission-panel::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-burgundy));
+            border-radius: 3px;
+        }
+        .mission-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.25;
+        }
+        .mission-text {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+        }
+        .mission-text:last-of-type {
+            margin-bottom: 0;
+        }
+        .hl-burgundy {
+            background: var(--accent-burgundy);
+            color: #f6f1e9;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .hl-green {
+            background: #2d5016;
+            color: #f6f1e9;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+
+        /* ========================================
+           5. WHO IT'S FOR
+        ======================================== */
+        .fit-section {
+            background: var(--bg-primary);
+        }
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .fit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .fit-card-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        .fit-list {
+            list-style: none;
+        }
+        .fit-list li {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        .fit-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+        .fit-list.yes li::before { content: '✓'; color: #4ade80; }
+        .fit-list.no li::before { content: '✕'; color: #f87171; }
+
+        /* ========================================
+           6. ABOUT ASON
+        ======================================== */
+        .about-section {
+            background:
+                radial-gradient(ellipse 60% 40% at 30% 50%, rgba(91, 31, 15, 0.08) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        .about-content h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .about-text {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .about-image-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .portrait-frame {
+            position: relative;
+            display: inline-block;
+        }
+        .portrait-frame::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 10px;
+            z-index: 0;
+        }
+        .portrait-frame img {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 10px;
+            z-index: 1;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Timeline */
+        .timeline-container {
+            margin: 4rem 0;
+        }
+        .timeline-heading {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy));
+            z-index: 0;
+        }
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+        .timeline-year {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem;
+            border-radius: 10px;
+            max-width: 190px;
+            width: 100%;
+        }
+        .timeline-milestone {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+        .timeline-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .about-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ========================================
+           7. HOW IT WORKS
+        ======================================== */
+        .how-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem 1.25rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .how-step:hover {
+            transform: translateY(-4px);
+        }
+        .how-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+        .how-step-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .how-step-num {
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        .how-step-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .how-step-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Metric cards below steps */
+        .how-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .how-metric {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+        .how-metric-num {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+        .how-metric-label {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           8. VIDEO TESTIMONIALS
+        ======================================== */
+        .vid-testimonials {
+            background:
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(212, 165, 116, 0.04) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+        .vid-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .vid-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .vid-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .vid-thumb {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+        .vid-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .vid-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 165, 116, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+        }
+        .vid-play-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent var(--bg-primary);
+            margin-left: 3px;
+        }
+        .vid-card:hover .vid-play-btn {
+            transform: translate(-50%, -50%) scale(1.12);
+            background: var(--accent-gold);
+        }
+        .vid-info {
+            padding: 1.25rem 1.5rem;
+        }
+        .vid-name {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+        .vid-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           9. FAQ
+        ======================================== */
+        .faq-section {
+            background: var(--bg-primary);
+        }
+        .faq-list {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .faq-item:first-child {
+            border-top: 1px solid var(--border-subtle);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+        .faq-question-text {
+            font-family: var(--font-heading);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            flex: 1;
+            padding-right: 1rem;
+        }
+        .faq-icon {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-answer-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           10. FINAL CTA
+        ======================================== */
+        .final-cta-section {
+            padding: 100px 2rem;
+            background:
+                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 60%),
+                var(--bg-primary);
+            text-align: center;
+        }
+        .final-cta-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .final-cta-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .final-cta-note {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+        }
+
+        /* ========================================
+           MODALS
+        ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Typeform modal — fullscreen */
+        .typeform-modal-content {
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            position: relative;
+        }
+        .typeform-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* Video modal */
+        .video-modal-box {
+            width: 90%;
+            max-width: 900px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .video-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .video-modal-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .video-modal-body {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        .video-modal-body iframe,
+        .video-modal-body wistia-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 1024px) {
+            .how-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .proof-metrics, .proof-quotes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-badge { display: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .section-pad { padding: 70px 1.25rem; }
+
+            .hero {
+                padding: 6rem 1.25rem 3rem;
+                min-height: auto;
+            }
+            .hero-headline {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+            }
+            .hero-ctas { flex-direction: column; }
+            .hero-badge { display: none !important; }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .proof-metrics,
+            .proof-quotes {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mission-panel {
+                padding: 2.5rem 1.75rem;
+            }
+            .mission-panel::before {
+                display: none;
+            }
+
+            .fit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-content { text-align: center; }
+
+            .timeline {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .timeline::before { display: none; }
+            .timeline-card { max-width: 260px; }
+
+            .how-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .how-metrics {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .vid-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .vid-thumb { height: 280px; }
+
+            .video-modal-box { width: 95%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 1rem 2rem;
+            }
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .how-steps {
+                grid-template-columns: 1fr;
+            }
+            .mission-panel {
+                padding: 2rem 1.25rem;
+                border-radius: 12px;
+            }
+            .fit-card { padding: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 0. STICKY NAV ===== -->
+    <nav class="nav" id="mainNav">
+        <a href="#" class="nav-logo">HighTicket<strong>Elites</strong></a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#proof">Proof</a></li>
+        </ul>
+        <a href="#" class="nav-cta" onclick="openTypeformModal(); return false;">Start Now</a>
+    </nav>
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero noise-overlay" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-headline reveal">
+                Build a Real eCommerce <span class="shimmer">Empire</span>
+            </h1>
+            <p class="hero-sub reveal reveal-delay-1">
+                The raw truth about building a 6–7 figure brand without playing the dropshipping lottery. Real infrastructure. Real margins. Real equity.
+            </p>
+            <div class="video-frame reveal reveal-delay-2">
+                <div class="video-placeholder" onclick="openTypeformModal()">
+                    <div class="vp-play-btn">
+                        <svg width="24" height="28" viewBox="0 0 24 28" fill="none"><path d="M22.5 12.268a2 2 0 010 3.464L3 26.66A2 2 0 010 25V3a2 2 0 013-1.732l19.5 11.268z" fill="currentColor"/></svg>
+                    </div>
+                    <div class="vp-label">Watch the Free Training</div>
+                    <div class="vp-duration">30 min</div>
+                </div>
+            </div>
+
+            <div class="hero-ctas reveal reveal-delay-3">
+                <button class="btn-gold" onclick="openTypeformModal()">Start Now &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. HOW IT WORKS ===== -->
+    <section class="how-section noise-overlay section-pad" id="how-it-works">
+        <div class="container text-center">
+            <h2 class="section-title reveal">How It Works</h2>
+            <p class="section-subtitle reveal">A simple, proven model for building a sustainable eCommerce business</p>
+
+            <div class="how-steps">
+                <div class="how-step reveal">
+                    <div class="how-step-icon">&#128179;</div>
+                    <div class="how-step-num">Step 1</div>
+                    <div class="how-step-title">Authorized Dealer</div>
+                    <div class="how-step-desc">Get authorized with premium brands and suppliers</div>
+                </div>
+                <div class="how-step reveal reveal-delay-1">
+                    <div class="how-step-icon">&#128270;</div>
+                    <div class="how-step-num">Step 2</div>
+                    <div class="how-step-title">Google Ads</div>
+                    <div class="how-step-desc">Drive high-intent buyers directly to your store</div>
+                </div>
+                <div class="how-step reveal reveal-delay-2">
+                    <div class="how-step-icon">&#128722;</div>
+                    <div class="how-step-num">Step 3</div>
+                    <div class="how-step-title">Customer Buys</div>
+                    <div class="how-step-desc">They purchase premium products at premium prices</div>
+                </div>
+                <div class="how-step reveal reveal-delay-3">
+                    <div class="how-step-icon">&#128230;</div>
+                    <div class="how-step-num">Step 4</div>
+                    <div class="how-step-title">Supplier Ships</div>
+                    <div class="how-step-desc">Supplier handles fulfillment directly to the customer</div>
+                </div>
+                <div class="how-step reveal reveal-delay-4">
+                    <div class="how-step-icon">&#128176;</div>
+                    <div class="how-step-num">Step 5</div>
+                    <div class="how-step-title">You Profit</div>
+                    <div class="how-step-desc">Keep the margin between wholesale and retail price</div>
+                </div>
+            </div>
+
+            <div class="how-metrics">
+                <div class="how-metric reveal">
+                    <div class="how-metric-num">$2,000+</div>
+                    <div class="how-metric-label">Average Order Value</div>
+                </div>
+                <div class="how-metric reveal reveal-delay-1">
+                    <div class="how-metric-num">30–50%</div>
+                    <div class="how-metric-label">Profit Margins</div>
+                </div>
+                <div class="how-metric reveal reveal-delay-2">
+                    <div class="how-metric-num">3–5x</div>
+                    <div class="how-metric-label">Target ROAS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. PROOF & TESTIMONIALS ===== -->
+    <section class="proof-section noise-overlay section-pad" id="proof">
+        <div class="container text-center">
+            <div class="section-badge reveal">Real Results</div>
+            <h2 class="section-title reveal">Proof That Speaks</h2>
+            <p class="section-subtitle reveal">No fluff. Real people, real revenue, real brands built from scratch.</p>
+
+            <!-- Video Testimonials -->
+            <div class="vid-grid" style="margin-bottom: 3rem;">
+                <div class="vid-card reveal">
+                    <div style="position: relative; padding-top: 56.25%; border-radius: 8px; overflow: hidden;">
+                        <iframe src="https://www.youtube.com/embed/oAx0s0vz5Oc" title="Student Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    </div>
+                </div>
+                <div class="vid-card reveal reveal-delay-1">
+                    <div style="position: relative; padding-top: 56.25%; border-radius: 8px; overflow: hidden;">
+                        <iframe src="https://www.youtube.com/embed/B4Uu0gTrhiU" title="Student Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote testimonials -->
+            <div class="proof-quotes">
+                <div class="quote-card reveal">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">Went from zero to $50K in my first few months. Ason's system is unlike anything else out there.</p>
+                    <div class="quote-author">Ben</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+                <div class="quote-card reveal reveal-delay-1">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">$200K/month and growing. This model gives you real margins and real retention. Not chasing trends.</p>
+                    <div class="quote-author">Kenny</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+                <div class="quote-card reveal reveal-delay-2">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">The infrastructure Ason teaches is what separates real operators from people playing the lottery.</p>
+                    <div class="quote-author">Pat</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+            </div>
+
+            <!-- Screenshot testimonials grid -->
+            <div class="testimonial-grid" id="testimonialGrid">
+                <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (72).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/038ef7db21e686fbdedc60a361701e8f.png" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/03f38000794e412e47387cb7eb08d633.png" alt="Student Results" class="testimonial-img" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. FAQ ===== -->
+    <section class="faq-section noise-overlay section-pad">
+        <div class="container text-center">
+            <h2 class="section-title reveal">Common Questions</h2>
+            <p class="section-subtitle reveal">Everything you need to know before applying</p>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How much does it cost to join the mentorship?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We discuss pricing on the strategy call because every situation is different. We want to make sure it's the right fit before talking numbers. Apply first, and we'll walk through everything together.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">Do I need experience in eCommerce?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">No. Many of our most successful members started from zero. The system is designed to be followed step-by-step. In fact, new founders often do better because they don't have bad habits to unlearn.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How long does it take to see results?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Most members see their first sales within 30–60 days of setting up their store. Scaling to consistent revenue takes 3–6 months of focused effort. This isn't a get-rich-quick scheme — it's a real business.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How much capital do I need to start?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We recommend having at least $2,000–$5,000 for your initial ad spend and store setup. Because you're dropshipping high-ticket items, you don't need to buy inventory upfront — the supplier ships directly to the customer.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">Can I do this part-time alongside my job?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Absolutely. Most of our members start part-time. The model is designed to scale without needing to babysit everything 24/7. Once your systems are set up, the business runs on autopilot for the most part.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">What makes this different from other eCom programs?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We focus on high-ticket authorized dealer models — not low-margin AliExpress products. You're selling $500–$2,000+ items from real brands with real infrastructure. Think Best Buy, not a TikTok hustle. The margins, retention, and long-term equity are in a completely different league.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">What kind of support do I get?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">You get direct access to Ason and the team through our private community. This includes 1-on-1 guidance, group calls, ad reviews, store audits, and a full library of training materials. We're in the trenches with you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 10. FINAL CTA ===== -->
+    <section class="final-cta-section noise-overlay">
+        <div class="container">
+            <h2 class="final-cta-headline reveal">Ready to Build Something <span class="shimmer">Real</span>?</h2>
+            <p class="final-cta-sub reveal reveal-delay-1">Apply now and see if you're the right fit for the mentorship. No pressure, no obligations — just a real conversation about your goals.</p>
+            <button class="btn-gold reveal reveal-delay-2" style="font-size: 1rem; padding: 1.1em 3em;" onclick="openTypeformModal()">Apply Now &rarr;</button>
+            <p class="final-cta-note reveal reveal-delay-3">Limited spots available</p>
+        </div>
+    </section>
+
+    <!-- ===== TYPEFORM MODAL ===== -->
+    <div class="modal-overlay" id="typeformModal">
+        <div class="typeform-modal-content">
+            <button class="modal-close" onclick="closeTypeformModal()">&times;</button>
+            <iframe src="https://form.typeform.com/to/waw3Nx7c" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- ===== VIDEO MODAL ===== -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="video-modal-box">
+            <div class="video-modal-header">
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-modal-body" id="videoModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // --- Nav scroll effect ---
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // --- Reveal on scroll (IntersectionObserver) ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // --- Typeform Modal ---
+        function openTypeformModal() {
+            document.getElementById('typeformModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // --- Video Modal ---
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const body = document.getElementById('videoModalBody');
+            body.innerHTML = '';
+
+            const script1 = document.createElement('script');
+            script1.src = 'https://fast.wistia.com/player.js';
+            script1.async = true;
+
+            const script2 = document.createElement('script');
+            script2.src = `https://fast.wistia.com/embed/${videoId}.js`;
+            script2.async = true;
+            script2.type = 'module';
+
+            const player = document.createElement('wistia-player');
+            player.setAttribute('media-id', videoId);
+            player.setAttribute('aspect', '1.7777777777777777');
+
+            const style = document.createElement('style');
+            style.textContent = `wistia-player[media-id='${videoId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${videoId}/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`;
+
+            body.appendChild(script1);
+            body.appendChild(script2);
+            body.appendChild(style);
+            body.appendChild(player);
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            document.getElementById('videoModalBody').innerHTML = '';
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // --- Close modals on backdrop click ---
+        document.getElementById('typeformModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTypeformModal();
+        });
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeVideoModal();
+        });
+
+        // --- Close modals on Escape ---
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTypeformModal();
+                closeVideoModal();
+            }
+        });
+
+        // --- Testimonial grid show more ---
+        function toggleTestimonials() {
+            const grid = document.getElementById('testimonialGrid');
+            const btn = document.getElementById('showMoreBtn');
+            const isCollapsed = grid.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                grid.classList.remove('collapsed');
+                btn.textContent = 'Show Less';
+            } else {
+                grid.classList.add('collapsed');
+                btn.textContent = 'Show All Results';
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // --- FAQ accordion ---
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const wasOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+
+            // Toggle clicked
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
+        }
+    </script>
+
+    <!-- Typeform Embed Script -->
+    <script>
+        (function() {
+            var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id="typef_orm",b="https://embed.typeform.com/";
+            if(!gi.call(d,id)) {
+                js=ce.call(d,"script");
+                js.id=id;
+                js.src=b+"embed.js";
+                q=gt.call(d,"script")[0];
+                q.parentNode.insertBefore(js,q);
+            }
+        })();
+    </script>
+</body>
+</html>

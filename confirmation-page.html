@@ -3,217 +3,890 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Submitted - Ason's Mentorship</title>
-    
-    <!-- Google Fonts -->
+    <title>High Ticket Elites — Watch Before Your Call</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- UTM Capture & Persistence Utility -->
     <script src="js/utm.js"></script>
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1410609885939308');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410609885939308&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
-        * {
+        :root {
+            --bg-primary: #0a0908;
+            --bg-secondary: #141210;
+            --bg-card: #1a1714;
+            --text-primary: #f5f0e8;
+            --text-secondary: #a89f94;
+            --accent-burgundy: #5b1f0f;
+            --accent-gold: #d4a574;
+            --accent-gold-dim: rgba(212, 165, 116, 0.3);
+            --accent-gold-glow: rgba(212, 165, 116, 0.15);
+            --bg-cream: #f2eee6;
+            --text-dark: #3b2f24;
+            --border-subtle: rgba(212, 165, 116, 0.12);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Cormorant Garamond', serif;
+        }
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #EDE8E1;
-            line-height: 1.6;
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Confirmation Container */
-        .confirmation-container {
-            min-height: 100vh;
+        /* Noise texture overlay */
+        .noise-overlay { position: relative; }
+        .noise-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 256px 256px;
+            z-index: 1;
+        }
+        .noise-overlay > * { position: relative; z-index: 2; }
+
+        img { max-width: 100%; display: block; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Gold shimmer */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, var(--accent-gold) 0%, #f0d9b5 40%, var(--accent-gold) 60%, #f0d9b5 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 6s linear infinite;
+        }
+
+        /* ======== NAV ======== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem 2rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            justify-content: space-between;
+            background: rgba(10, 9, 8, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo strong {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .nav-back {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .nav-back:hover { color: var(--accent-gold); }
+
+        /* ======== SECTION SHARED ======== */
+        .section-badge {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid var(--accent-gold-dim);
+            padding: 0.4em 1.2em;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        .confirmation-card {
-            background-color: #F2EEE6;
-            color: #3B2F24;
-            padding: 4rem 3rem;
-            border-radius: 15px;
+        /* ========================================
+           CONFIRMATION HERO
+        ======================================== */
+        .hero-section {
+            padding: 7rem 2rem 4rem;
             text-align: center;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideIn 0.6s ease-out;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 40%, rgba(91, 31, 15, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 30% 60%, rgba(212, 165, 116, 0.06) 0%, transparent 60%),
+                var(--bg-primary);
         }
 
-        /* Success Icon */
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: #5B1F0F;
+        /* Steps indicator */
+        .confirm-steps {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem auto;
-            color: #F6F1E9;
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .step-num.completed {
+            background: rgba(212, 165, 116, 0.15);
+            border: 1px solid var(--accent-gold-dim);
+            color: var(--accent-gold);
+        }
+        .step-num.active {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.3);
+        }
+        .step-label {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .step-label.completed { color: var(--accent-gold); opacity: 0.7; }
+        .step-label.active { color: var(--text-primary); }
+        .step-connector {
+            width: 40px;
+            height: 1px;
+            background: var(--border-subtle);
+            align-self: center;
         }
 
-        /* Typography */
-        .confirmation-title {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 2.5rem);
+        /* Success checkmark */
+        @keyframes checkPop {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2), rgba(212, 165, 116, 0.08));
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: checkPop 0.6s ease 0.3s both;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.2);
+        }
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--accent-gold);
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: #3B2F24;
+            color: var(--text-primary);
             margin-bottom: 1rem;
             line-height: 1.2;
         }
-
-        .confirmation-subtitle {
+        .hero-subtitle {
+            font-family: var(--font-body);
             font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            color: #5B1F0F;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
         }
 
-        .confirmation-text {
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            color: #3B2F24;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+        /* Required video with gold corner frames */
+        .video-frame {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 12px;
         }
-
-        /* Next Steps */
-        .next-steps {
-            background-color: #5B1F0F;
-            color: #F6F1E9;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: left;
+        .video-frame::before,
+        .video-frame::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-gold);
+            pointer-events: none;
+            z-index: 3;
         }
-
-        .next-steps h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #F6F1E9;
+        .video-frame::before {
+            top: 0; left: 0;
+            border-right: none; border-bottom: none;
         }
-
-        .next-steps ul {
-            list-style: none;
-            padding: 0;
+        .video-frame::after {
+            bottom: 0; right: 0;
+            border-left: none; border-top: none;
         }
-
-        .next-steps li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+        .video-inner {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .video-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .wistia-video-wrap {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
             position: relative;
         }
-
-        .next-steps li:before {
-            content: "✓";
+        .wistia-video-wrap wistia-player {
             position: absolute;
-            left: 0;
-            color: #F6F1E9;
-            font-weight: bold;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
         }
 
-        /* CTA Button */
-        .cta-button {
-            background-color: #5B1F0F;
-            color: #F6F1E9;
-            border: none;
-            padding: 1.25rem 3rem;
-            font-size: 1.2rem;
+        .required-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            border-radius: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #f87171;
+            margin-top: 1.5rem;
+        }
+
+        /* ========================================
+           ADDITIONAL RESOURCES SECTION
+        ======================================== */
+        .resources-section {
+            padding: 5rem 2rem;
+            background:
+                radial-gradient(ellipse 50% 40% at 50% 30%, rgba(212, 165, 116, 0.04) 0%, transparent 60%),
+                var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+        .resources-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
-            margin-top: 1rem;
+            position: relative;
+        }
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+        .video-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .video-card:hover::before { opacity: 1; }
+
+        .video-card-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        .video-card-embed wistia-player {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        .video-card-title {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 1.25rem 1.5rem;
+            letter-spacing: 0.03em;
         }
 
-        .cta-button:hover {
-            background-color: #4A1A0D;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4);
+        /* ========================================
+           STUDENT RESULTS SECTION
+        ======================================== */
+        .results-section {
+            padding: 5rem 2rem;
+            background:
+                radial-gradient(ellipse 50% 30% at 50% 20%, rgba(91, 31, 15, 0.08) 0%, transparent 70%),
+                var(--bg-primary);
+            border-top: 1px solid var(--border-subtle);
+        }
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        /* Animation */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .vid-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .vid-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .vid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+        .vid-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+        }
+        .vid-card:hover::before { opacity: 1; }
+
+        .vid-card-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        .vid-card-embed wistia-player {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        .vid-card-title {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 1.25rem 1.5rem;
+            letter-spacing: 0.03em;
         }
 
-        /* Mobile Responsive */
+        /* Testimonial grid */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-gold-dim);
+        }
+        .testimonial-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* ========================================
+           MODALS
+        ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-modal-box {
+            width: 90%;
+            max-width: 900px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .video-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .video-modal-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .video-modal-body {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        .video-modal-body iframe,
+        .video-modal-body wistia-player {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* Typeform Modal */
+        .typeform-overlay {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .typeform-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .typeform-modal-content {
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            position: relative;
+        }
+        .typeform-modal-content iframe {
+            width: 100%; height: 100%; border: none;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 50px; height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            transition: all 0.3s ease;
+        }
+        .modal-close-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
         @media (max-width: 768px) {
-            .confirmation-container {
-                padding: 1rem;
-            }
-
-            .confirmation-card {
-                padding: 3rem 2rem;
-            }
-
-            .success-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-
-            .next-steps {
-                padding: 1.5rem;
-            }
+            .hero-section { padding: 6rem 1.25rem 3rem; }
+            .resources-section, .results-section { padding: 3.5rem 1.25rem; }
+            .video-grid { grid-template-columns: 1fr; }
+            .vid-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+            .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-modal-box { width: 95%; }
+            .confirm-steps { gap: 1.5rem; }
+            .step-label { display: none; }
+            .step-connector { width: 24px; }
+        }
+        @media (max-width: 480px) {
+            .hero-section { padding: 5rem 1rem 2rem; }
+            .hero-title { font-size: 1.65rem; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .video-frame::before,
+            .video-frame::after { width: 30px; height: 30px; }
+            .confirm-steps { gap: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="confirmation-container">
-        <div class="confirmation-card">
-            <!-- Success Icon -->
-            <div class="success-icon">✓</div>
-            
-            <!-- Title -->
-            <h1 class="confirmation-title">Application Submitted!</h1>
-            
-            <!-- Subtitle -->
-            <p class="confirmation-subtitle">You're one step closer to building a real business</p>
-            
-            <!-- Main Text -->
-            <p class="confirmation-text">
-                Thank you for applying to Ason's mentorship program. We've received your application and will review it carefully.
-            </p>
-            
-            <!-- Next Steps -->
-            <div class="next-steps">
-                <h3>What happens next?</h3>
-                <ul>
-                    <li>We'll review your application within 24-48 hours</li>
-                    <li>You'll receive a personalized response via email</li>
-                    <li>If approved, we'll schedule a strategy call</li>
-                    <li>We'll discuss your goals and create a custom plan</li>
-                </ul>
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav">
+        <a href="index-v2.html" class="nav-logo">HighTicket<strong>Elites</strong></a>
+        <a href="index-v2.html" class="nav-back">&larr; Back to Home</a>
+    </nav>
+
+    <!-- ===== HERO VIDEO ===== -->
+    <section class="hero-section noise-overlay">
+        <div class="container">
+
+            <!-- Steps indicator -->
+            <div class="confirm-steps reveal">
+                <div class="step">
+                    <div class="step-num completed">&#10003;</div>
+                    <span class="step-label completed">Apply</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-num completed">&#10003;</div>
+                    <span class="step-label completed">Book Call</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-num active">3</div>
+                    <span class="step-label active">Prepare</span>
+                </div>
             </div>
-            
-            <!-- CTA Button -->
-            <!-- This button redirects users to an educational primer page. This helps shift the upcoming sales call from an "education call" to a "purchase-ready" call by warming them up with context, value, and authority. -->
-            <button class="cta-button" onclick="window.location.href='education.html'">
-                Continue to Next Step
-            </button>
+
+            <!-- Success checkmark -->
+            <div class="success-icon reveal">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+
+            <h1 class="hero-title reveal reveal-delay-1">You're <span class="shimmer">Confirmed</span></h1>
+            <p class="hero-subtitle reveal reveal-delay-2">Your call is booked. Watch this required video before our session — it covers the essential foundation of our high-ticket ecom system and what makes this approach different.</p>
+
+            <div class="video-frame reveal reveal-delay-3">
+                <div class="video-inner">
+                    <div class="wistia-video-wrap">
+                        <script src="https://fast.wistia.com/player.js" async></script>
+                        <script src="https://fast.wistia.com/embed/pdtc5v4po5.js" async type="module"></script>
+                        <style>wistia-player[media-id='pdtc5v4po5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pdtc5v4po5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="pdtc5v4po5" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                </div>
+            </div>
+
+            <div class="required-badge reveal">
+                <span style="font-size: 0.9em;">&#9679;</span> Required Viewing Before Your Call
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADDITIONAL RESOURCES ===== -->
+    <section class="resources-section noise-overlay">
+        <div class="container">
+            <div class="resources-header">
+                <div class="section-badge reveal">Bonus Training</div>
+                <h2 class="section-title reveal">Additional Resources to Maximize Your Call</h2>
+                <p class="section-subtitle reveal">These videos aren't mandatory, but watching them will help you get even more value from our conversation.</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card reveal" onclick="openVideoModal('hbd86qmmjp')">
+                    <div class="video-card-embed">
+                        <script src="https://fast.wistia.com/embed/hbd86qmmjp.js" async type="module"></script>
+                        <style>wistia-player[media-id='hbd86qmmjp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/hbd86qmmjp/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="hbd86qmmjp" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="video-card-title">High Ticket Dropshipping System</div>
+                </div>
+                <div class="video-card reveal reveal-delay-1" onclick="openVideoModal('uab7r5xk32')">
+                    <div class="video-card-embed">
+                        <script src="https://fast.wistia.com/embed/uab7r5xk32.js" async type="module"></script>
+                        <style>wistia-player[media-id='uab7r5xk32']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/uab7r5xk32/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="uab7r5xk32" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="video-card-title">High Level Branding Training</div>
+                </div>
+                <div class="video-card reveal" onclick="openVideoModal('yr7fmzmlcm')">
+                    <div class="video-card-embed">
+                        <script src="https://fast.wistia.com/embed/yr7fmzmlcm.js" async type="module"></script>
+                        <style>wistia-player[media-id='yr7fmzmlcm']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/yr7fmzmlcm/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="yr7fmzmlcm" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="video-card-title">How to Find High Ticket Products</div>
+                </div>
+                <div class="video-card reveal reveal-delay-1" onclick="openVideoModal('2kq5gshvnq')">
+                    <div class="video-card-embed">
+                        <script src="https://fast.wistia.com/embed/2kq5gshvnq.js" async type="module"></script>
+                        <style>wistia-player[media-id='2kq5gshvnq']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2kq5gshvnq/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="2kq5gshvnq" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="video-card-title">How to Start Dropshipping</div>
+                </div>
+                <div class="video-card reveal" onclick="openVideoModal('ezcuse1xdw')">
+                    <div class="video-card-embed">
+                        <script src="https://fast.wistia.com/embed/ezcuse1xdw.js" async type="module"></script>
+                        <style>wistia-player[media-id='ezcuse1xdw']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ezcuse1xdw/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="ezcuse1xdw" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="video-card-title">Sales Strategy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STUDENT RESULTS ===== -->
+    <section class="results-section noise-overlay">
+        <div class="container">
+            <div class="results-header">
+                <div class="section-badge reveal">Real Proof</div>
+                <h2 class="section-title reveal">Student Results & Proof</h2>
+                <p class="section-subtitle reveal">No fluff. Just real people, real results, and real brands built from scratch.</p>
+            </div>
+
+            <div class="vid-grid">
+                <div class="vid-card reveal" onclick="openVideoModal('gzsxyf4ryp')">
+                    <div class="vid-card-embed">
+                        <script src="https://fast.wistia.com/embed/gzsxyf4ryp.js" async type="module"></script>
+                        <style>wistia-player[media-id='gzsxyf4ryp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/gzsxyf4ryp/swatch'); display: block; filter: blur(5px); padding-top:177.5%; }</style>
+                        <wistia-player media-id="gzsxyf4ryp" aspect="0.5633802816901409"></wistia-player>
+                    </div>
+                    <div class="vid-card-title">Ben Testimonial ($0 - $50k)</div>
+                </div>
+                <div class="vid-card reveal reveal-delay-1" onclick="openVideoModal('583px6guy5')">
+                    <div class="vid-card-embed">
+                        <script src="https://fast.wistia.com/embed/583px6guy5.js" async type="module"></script>
+                        <style>wistia-player[media-id='583px6guy5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/583px6guy5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+                        <wistia-player media-id="583px6guy5" aspect="1.7777777777777777"></wistia-player>
+                    </div>
+                    <div class="vid-card-title">Kenny Testimonial ($200k / mo)</div>
+                </div>
+            </div>
+
+            <!-- Picture Testimonials -->
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal"><img src="Program Results/Pat4.6k.jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/77kmo kenny.jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/SR1 (2).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/unnamed (68).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/unnamed (72).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/unnamed (41).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/unnamed (5).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/unnamed (2).jpg" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/038ef7db21e686fbdedc60a361701e8f.png" alt="Student Results" loading="lazy"></div>
+                <div class="testimonial-card reveal"><img src="Program Results/03f38000794e412e47387cb7eb08d633.png" alt="Student Results" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEO MODAL ===== -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="video-modal-box">
+            <div class="video-modal-header">
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-modal-body" id="videoModalBody"></div>
         </div>
     </div>
+
+    <!-- ===== TYPEFORM MODAL ===== -->
+    <div class="typeform-overlay" id="typeformModal">
+        <div class="typeform-modal-content">
+            <button class="modal-close-btn" onclick="closeTypeformModal()">&times;</button>
+            <iframe src="https://form.typeform.com/to/waw3Nx7c" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Reveal on scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Video Modal
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const body = document.getElementById('videoModalBody');
+            body.innerHTML = '';
+
+            const s1 = document.createElement('script');
+            s1.src = 'https://fast.wistia.com/player.js';
+            s1.async = true;
+
+            const s2 = document.createElement('script');
+            s2.src = `https://fast.wistia.com/embed/${videoId}.js`;
+            s2.async = true;
+            s2.type = 'module';
+
+            const player = document.createElement('wistia-player');
+            player.setAttribute('media-id', videoId);
+            player.setAttribute('aspect', '1.7777777777777777');
+
+            const style = document.createElement('style');
+            style.textContent = `wistia-player[media-id='${videoId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${videoId}/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`;
+
+            body.appendChild(s1);
+            body.appendChild(s2);
+            body.appendChild(style);
+            body.appendChild(player);
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeVideoModal() {
+            document.getElementById('videoModalBody').innerHTML = '';
+            document.getElementById('videoModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Typeform Modal
+        function openTypeformModal() {
+            document.getElementById('typeformModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on backdrop / escape
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeVideoModal();
+        });
+        document.getElementById('typeformModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTypeformModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeVideoModal(); closeTypeformModal(); }
+        });
+    </script>
 </body>
-</html> 
+</html>
