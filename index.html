@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Ticket Ecommerce Mentorship</title>
+    <title>High Ticket Elites — Build a Real eCommerce Empire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- UTM Capture & Persistence Utility -->
     <script src="js/utm.js"></script>
 
@@ -27,248 +27,792 @@
     <!-- End Meta Pixel Code -->
 
     <style>
-        * {
+        /* ========================================
+           CSS VARIABLES — LUXURY DESIGN SYSTEM
+        ======================================== */
+        :root {
+            --bg-primary: #0a0908;
+            --bg-secondary: #141210;
+            --bg-card: #1a1714;
+            --bg-card-hover: #221e19;
+            --text-primary: #f5f0e8;
+            --text-secondary: #a89f94;
+            --accent-burgundy: #5b1f0f;
+            --accent-burgundy-hover: #6b2a1a;
+            --accent-gold: #d4a574;
+            --accent-gold-dim: rgba(212, 165, 116, 0.3);
+            --accent-gold-glow: rgba(212, 165, 116, 0.15);
+            --bg-cream: #f2eee6;
+            --text-dark: #3b2f24;
+            --border-subtle: rgba(212, 165, 116, 0.12);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Cormorant Garamond', serif;
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #EDE8E1;
-            background-color: #000000;
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* SECTION 1: HERO SECTION */
-        .hero-section {
-            min-height: auto;
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay on dark sections */
+        .noise-overlay {
+            position: relative;
+        }
+        .noise-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 256px 256px;
+            z-index: 1;
+        }
+        .noise-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        /* ========================================
+           SECTION SHARED
+        ======================================== */
+        .section-pad {
+            padding: 100px 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section-badge {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid var(--accent-gold-dim);
+            padding: 0.4em 1.2em;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-gold); }
+
+        /* ========================================
+           REVEAL ANIMATIONS
+        ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Gold shimmer on headline */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, var(--accent-gold) 0%, #f0d9b5 40%, var(--accent-gold) 60%, #f0d9b5 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 6s linear infinite;
+        }
+
+        /* CTA glow pulse */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.2), 0 0 40px rgba(212, 165, 116, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(212, 165, 116, 0.35), 0 0 60px rgba(212, 165, 116, 0.15); }
+        }
+
+        /* ========================================
+           0. STICKY NAV
+        ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .nav.scrolled {
+            background: rgba(10, 9, 8, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+        .nav-logo strong {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        .nav-cta {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            background: var(--accent-gold);
+            padding: 0.6em 1.6em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover {
+            background: #e0b68a;
+            transform: translateY(-1px);
+        }
+
+        /* ========================================
+           1. HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem 0.5rem 1rem;
-            background-color: #000000;
+            padding: 8rem 2rem 5rem;
             position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 40%, rgba(91, 31, 15, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 70% 60%, rgba(212, 165, 116, 0.06) 0%, transparent 60%),
+                var(--bg-primary);
         }
-
         .hero-content {
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
             text-align: center;
         }
-
-        .headline {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+        .hero-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 700;
             line-height: 1.1;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-            color: #EDE8E1;
             letter-spacing: 0.02em;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
         }
-
-        .subheadline {
-            font-size: clamp(1rem, 2.2vw, 1.3rem);
-            font-weight: 300;
-            margin-bottom: 3rem;
-            color: #EDE8E1;
-            opacity: 0.9;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
         }
-
-        .video-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background-color: #1E293B;
-            position: relative;
+        .hero-ctas {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #EDE8E1;
-            font-size: 1.1rem;
-            opacity: 0.7;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .btn-gold {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            background: var(--accent-gold);
+            padding: 1em 2.5em;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        .btn-gold:hover {
+            background: #e0b68a;
+            transform: translateY(-2px);
+        }
+        .btn-ghost {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            background: transparent;
+            border: 1px solid var(--accent-gold-dim);
+            padding: 1em 2.5em;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .btn-ghost:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
-        /* Replace this iframe with your actual Wistia video embed */
-        .wistia-video {
+        /* Video container with gold corner frames */
+        .video-frame {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+        .video-frame::before,
+        .video-frame::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-gold);
+            pointer-events: none;
+            z-index: 3;
+        }
+        .video-frame::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+        .video-frame::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+        .video-inner {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .video-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .wistia-video-wrap {
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             position: relative;
         }
-
-        .wistia-video iframe {
+        .wistia-video-wrap wistia-player {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
         }
 
-        .cta-button {
-            background-color: #5B1F0F;
-            color: white;
-            border: none;
-            padding: 1.25rem 4rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
-            margin-bottom: 0 !important;
-        }
-
-        .cta-button:hover {
-            background-color: #6B2A1A;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4);
-        }
-
-        .cta-button:active {
-            transform: translateY(0);
-        }
-
-        /* SECTION 2: MISSION SECTION */
-        .mission-section {
-            background-color: #F2EEE6;
-            padding: 80px 2rem;
-            text-align: center;
-        }
-
-        .mission-content {
-            max-width: 700px;
-            margin: 0 auto;
+        /* Video placeholder template */
+        .video-placeholder {
             position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background:
+                radial-gradient(ellipse 60% 60% at 50% 50%, rgba(212, 165, 116, 0.06) 0%, transparent 70%),
+                linear-gradient(135deg, #1a1714 0%, #0f0e0c 50%, #1a1714 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+        }
+        .video-placeholder:hover {
+            border-color: var(--accent-gold-dim);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 165, 116, 0.08);
+        }
+        .video-placeholder:hover .vp-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--accent-gold);
+            box-shadow: 0 0 40px rgba(212, 165, 116, 0.4);
+        }
+        .vp-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 165, 116, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 30px rgba(212, 165, 116, 0.3);
+            z-index: 2;
+        }
+        .vp-play-btn svg {
+            margin-left: 4px;
+        }
+        .vp-label {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            white-space: nowrap;
+            z-index: 2;
+        }
+        .vp-duration {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            z-index: 2;
         }
 
-        /* Optional: Subtle vertical accent line */
-        .mission-content::before {
+        /* Floating stat badges */
+        .hero-badge {
+            position: absolute;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 0.6rem 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            z-index: 4;
+        }
+        .hero-badge .badge-icon {
+            font-size: 1.2rem;
+        }
+        .hero-badge .badge-value {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+        .hero-badge .badge-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .badge-top-left {
+            top: -10px;
+            left: -20px;
+        }
+        .badge-bottom-right {
+            bottom: -10px;
+            right: -20px;
+        }
+
+        /* ========================================
+           2. STATS BAR
+        ======================================== */
+        .stats-bar {
+            padding: 60px 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .stats-disclaimer {
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        /* ========================================
+           3. PROOF THAT SPEAKS
+        ======================================== */
+        .proof-section {
+            background:
+                radial-gradient(ellipse 50% 30% at 50% 20%, rgba(91, 31, 15, 0.08) 0%, transparent 70%),
+                var(--bg-primary);
+        }
+        .proof-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .proof-card::before {
             content: '';
             position: absolute;
-            left: -20px;
             top: 0;
-            bottom: 0;
-            width: 3px;
-            background-color: #5B1F0F;
-            opacity: 0.3;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
         }
-
-        .mission-title {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+        .proof-card-badge {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.08);
+            padding: 0.3em 0.8em;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .proof-card-number {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             font-weight: 700;
-            color: #3B2F24;
-            margin-bottom: 2rem;
-            line-height: 1.2;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+        .proof-card-desc {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-secondary);
         }
 
+        /* Quote testimonials */
+        .proof-quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .quote-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .quote-mark {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.4;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .quote-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .quote-author {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+        .quote-role {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Testimonial image grid */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .testimonial-grid.collapsed {
+            max-height: 900px;
+            overflow: hidden;
+            position: relative;
+        }
+        .testimonial-grid.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+            pointer-events: none;
+        }
+        .testimonial-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease;
+        }
+        .testimonial-img:hover {
+            transform: scale(1.02);
+        }
+        .show-more-wrap {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .btn-show-more {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: transparent;
+            border: 1px solid var(--accent-gold-dim);
+            padding: 0.8em 2em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-show-more:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.05);
+        }
+
+        /* ========================================
+           4. WHAT THIS IS (MISSION) — cream panel
+        ======================================== */
+        .mission-section {
+            padding: 100px 2rem;
+            background: var(--bg-primary);
+        }
+        .mission-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-cream);
+            border-radius: 16px;
+            padding: 4rem 3.5rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .mission-panel::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-burgundy));
+            border-radius: 3px;
+        }
+        .mission-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.25;
+        }
         .mission-text {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
             font-weight: 400;
             line-height: 1.8;
-            color: #3B2F24;
-            margin: 0 0 20px 0;
-            text-align: left;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
         }
-
-        .mission-text:last-child {
+        .mission-text:last-of-type {
             margin-bottom: 0;
         }
-
-        /* Highlight Classes */
-        .highlight-burgundy {
-            background-color: #5B1F0F;
-            color: #F6F1E9;
-            font-weight: 700;
-            padding: 2px 6px;
+        .hl-burgundy {
+            background: var(--accent-burgundy);
+            color: #f6f1e9;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .hl-green {
+            background: #2d5016;
+            color: #f6f1e9;
+            font-weight: 600;
+            padding: 1px 6px;
             border-radius: 3px;
         }
 
-        .highlight-green {
-            background-color: #2D5016;
-            color: #F6F1E9;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
+        /* ========================================
+           5. WHO IT'S FOR
+        ======================================== */
+        .fit-section {
+            background: var(--bg-primary);
         }
-
-        .highlight-emphasis {
-            background-color: #5B1F0F;
-            color: #F6F1E9;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-
-        /* Desktop Layout */
-        @media (min-width: 768px) {
-            .mission-content {
-                text-align: left;
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            .mission-text {
-                text-align: left;
-                margin-bottom: 25px;
-            }
-
-            /* Desktop padding for hero section */
-            .hero-section {
-                padding: 4rem 2rem 2rem 2rem;
-            }
-        }
-
-        /* Mobile Layout */
-        @media (max-width: 767px) {
-            .mission-content {
-                text-align: left;
-                padding: 0 20px;
-            }
-
-            .mission-text {
-                text-align: left;
-                margin-bottom: 18px;
-            }
-
-            .mission-content::before {
-                display: none;
-            }
-        }
-
-        /* SECTION 3: ABOUT ASON SECTION */
-        .about-section {
-            background-color: #000000;
-            padding: 80px 2rem;
-            color: #EDE8E1;
-        }
-
-        .about-container {
-            max-width: 1200px;
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
             margin: 0 auto;
         }
+        .fit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .fit-card-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        .fit-list {
+            list-style: none;
+        }
+        .fit-list li {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        .fit-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+        .fit-list.yes li::before { content: '✓'; color: #4ade80; }
+        .fit-list.no li::before { content: '✕'; color: #f87171; }
 
+        /* ========================================
+           6. ABOUT ASON
+        ======================================== */
+        .about-section {
+            background:
+                radial-gradient(ellipse 60% 40% at 30% 50%, rgba(91, 31, 15, 0.08) 0%, transparent 60%),
+                var(--bg-primary);
+        }
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -276,64 +820,63 @@
             align-items: center;
             margin-bottom: 4rem;
         }
-
-        .about-content {
-            padding-right: 2rem;
-        }
-
-        .about-title {
-            font-family: 'Merriweather', serif;
+        .about-content h2 {
+            font-family: var(--font-heading);
             font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: #EDE8E1;
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
         }
-
         .about-text {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            font-weight: 400;
-            line-height: 1.7;
-            color: #EDE8E1;
-            opacity: 0.9;
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
-
-        .about-image {
+        .about-image-wrap {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        .ason-portrait {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 4/5;
+        .portrait-frame {
+            position: relative;
+            display: inline-block;
+        }
+        .portrait-frame::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px solid var(--accent-gold);
             border-radius: 10px;
+            z-index: 0;
+        }
+        .portrait-frame img {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4/5;
             object-fit: cover;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            z-index: 1;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .ason-portrait:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Timeline Styles */
+        /* Timeline */
         .timeline-container {
             margin: 4rem 0;
         }
-
-        .timeline-title {
-            font-family: 'Merriweather', serif;
+        .timeline-heading {
+            font-family: var(--font-heading);
             font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 700;
-            color: #EDE8E1;
+            font-weight: 600;
+            color: var(--text-primary);
             text-align: center;
             margin-bottom: 3rem;
         }
-
         .timeline {
             display: flex;
             justify-content: space-between;
@@ -342,459 +885,430 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
         .timeline::before {
             content: '';
             position: absolute;
-            top: 2rem;
+            top: 1.5rem;
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, #5B1F0F, #6B2A1A);
-            z-index: 1;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy));
+            z-index: 0;
         }
-
         .timeline-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             position: relative;
-            z-index: 2;
+            z-index: 1;
             flex: 1;
         }
-
         .timeline-year {
-            background-color: #5B1F0F;
-            color: white;
-            font-family: 'Inter', sans-serif;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+            letter-spacing: 0.05em;
         }
-
-        .timeline-content {
-            background: linear-gradient(135deg, #F2EEE6 0%, #F8F4EC 50%, #F2EEE6 100%);
-            padding: 1.5rem;
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem;
             border-radius: 10px;
-            max-width: 200px;
+            max-width: 190px;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(59, 47, 36, 0.1);
         }
-
         .timeline-milestone {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
             font-weight: 600;
-            font-size: 1rem;
-            color: #3B2F24;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
         }
-
-        .timeline-description {
-            font-family: 'Inter', sans-serif;
+        .timeline-desc {
+            font-family: var(--font-body);
             font-size: 0.9rem;
-            color: #3B2F24;
-            opacity: 0.8;
+            color: var(--text-secondary);
             line-height: 1.4;
         }
-
         .about-cta {
             text-align: center;
             margin-top: 3rem;
         }
 
-        .cta-button-secondary {
-            background-color: #5B1F0F;
-            color: #F6F1E9;
-            border: none;
-            padding: 1.25rem 4rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
+        /* ========================================
+           7. HOW IT WORKS
+        ======================================== */
+        .how-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
         }
-
-        .cta-button-secondary:hover {
-            background-color: #4A1A0D;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(91, 31, 15, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .cta-button-secondary:active {
-            transform: translateY(0);
-        }
-
-        /* SECTION 4: PILLARS SECTION */
-        .pillars-section {
-            background-color: #000000;
-            padding: 80px 2rem;
-            color: #EDE8E1;
-        }
-
-        .pillars-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pillars-title {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: #EDE8E1;
-            text-align: center;
-            margin-bottom: 3rem;
-            line-height: 1.2;
-        }
-
-        .pillars-grid {
+        .how-steps {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
             margin-bottom: 3rem;
         }
-
-        .pillar-card {
-            background-color: #F2EEE6;
-            padding: 2rem;
-            border-radius: 10px;
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem 1.25rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .pillar-number {
-            background-color: #5B1F0F;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-            box-shadow: 0 4px 15px rgba(91, 31, 15, 0.3);
-        }
-
-        .pillar-title {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            font-weight: 700;
-            color: #3B2F24;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .pillar-description {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            font-weight: 400;
-            line-height: 1.6;
-            color: #3B2F24;
-            opacity: 0.9;
-        }
-
-        .pillars-cta {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        /* SECTION 5: STUDENT RESULTS SECTION */
-        .results-section {
-            background-color: #F2EEE6;
-            padding: 80px 2rem;
-            color: #3B2F24;
-        }
-
-        .results-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .results-title {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: #3B2F24;
-            text-align: center;
-            margin-bottom: 3rem;
-            line-height: 1.2;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-
-        .testimonial-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #E5E5E5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-            color: #666;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 2px dashed #CCC;
-        }
-
-        .testimonial-name {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            font-weight: 600;
-            color: #3B2F24;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .testimonial-quote {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            font-weight: 400;
-            line-height: 1.6;
-            color: #3B2F24;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
             position: relative;
-            background-color: #000000;
-            margin: 2% auto;
-            padding: 0;
-            width: 95%;
-            max-width: 600px;
-            height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            animation: slideIn 0.3s ease;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #1E293B;
-        }
-
-        .modal-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            color: #EDE8E1;
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            color: #EDE8E1;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-        }
-
-        .close-button:hover {
-            background-color: #1E293B;
-        }
-
-        .modal-body {
-            height: calc(100% - 80px);
-            padding: 0;
-        }
-
-        .typeform-container {
-            width: 100%;
-            height: 100%;
-            border-radius: 0 0 12px 12px;
             overflow: hidden;
+            transition: transform 0.3s ease;
         }
-
-        /* Replace this iframe with your actual Typeform embed */
-        .typeform-embed {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .how-step:hover {
+            transform: translateY(-4px);
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Full-screen Typeform Modal */
-        .typeform-modal {
-            margin: 0;
-            width: 100vw;
-            height: 100vh;
-            max-width: none;
-            max-height: none;
-            border-radius: 0;
-            background-color: white;
-            animation: typeformFadeIn 0.4s ease-out;
-        }
-
-        .typeform-modal .modal-header {
+        .how-step::before {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: none;
-            border: none;
-            padding: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+        .how-step-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .how-step-num {
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        .how-step-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .how-step-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
-        .typeform-modal .close {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Metric cards below steps */
+        .how-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .how-metric {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+        .how-metric-num {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+        }
+        .how-metric-label {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           8. VIDEO TESTIMONIALS
+        ======================================== */
+        .vid-testimonials {
+            background:
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(212, 165, 116, 0.04) 0%, transparent 60%),
+                var(--bg-primary);
+        }
+        .vid-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .vid-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
-
-        .typeform-modal .close:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
+        .vid-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
-
-        .typeform-modal .modal-body {
-            padding: 0;
-            height: 100vh;
+        .vid-thumb {
+            position: relative;
+            width: 100%;
+            height: 350px;
             overflow: hidden;
         }
-
-        .typeform-modal .modal-body iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
-        }
-
-        /* Video Modal Styles */
-        .video-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+        .vid-thumb img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            object-fit: cover;
         }
-
-        .video-modal-content {
+        .vid-play-btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            margin: 0 auto;
-            width: 90%;
-            max-width: 800px;
-            background-color: #F6F1E9;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        .video-modal-header {
-            display: flex;
-            justify-content: flex-end;
-            padding: 1rem;
-            background-color: #F6F1E9;
-            border-bottom: 1px solid rgba(91, 31, 15, 0.1);
-        }
-
-        .video-modal-close {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #5B1F0F;
-            cursor: pointer;
-            padding: 0;
-            width: 40px;
-            height: 40px;
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 165, 116, 0.9);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+        }
+        .vid-play-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent var(--bg-primary);
+            margin-left: 3px;
+        }
+        .vid-card:hover .vid-play-btn {
+            transform: translate(-50%, -50%) scale(1.12);
+            background: var(--accent-gold);
+        }
+        .vid-info {
+            padding: 1.25rem 1.5rem;
+        }
+        .vid-name {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+        .vid-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
 
-        .video-modal-close:hover {
-            background-color: rgba(91, 31, 15, 0.1);
+        /* ========================================
+           9. FAQ
+        ======================================== */
+        .faq-section {
+            background: var(--bg-primary);
+        }
+        .faq-list {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .faq-item:first-child {
+            border-top: 1px solid var(--border-subtle);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+        .faq-question-text {
+            font-family: var(--font-heading);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            flex: 1;
+            padding-right: 1rem;
+        }
+        .faq-icon {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-answer-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           10. FINAL CTA
+        ======================================== */
+        .final-cta-section {
+            padding: 100px 2rem;
+            background:
+                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 60%),
+                var(--bg-primary);
+            text-align: center;
+        }
+        .final-cta-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .final-cta-sub {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .final-cta-note {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+        }
+
+        /* ========================================
+           MODALS
+        ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Typeform modal — fullscreen */
+        .typeform-modal-content {
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            position: relative;
+        }
+        .typeform-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2001;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
             transform: scale(1.1);
         }
 
+        /* Video modal */
+        .video-modal-box {
+            width: 90%;
+            max-width: 900px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .video-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .video-modal-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
         .video-modal-body {
-            padding: 0;
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
         }
-
         .video-modal-body iframe,
         .video-modal-body wistia-player {
             position: absolute;
@@ -805,919 +1319,490 @@
             border: none;
         }
 
-        /* Testimonial Image Styling */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-            width: 100%;
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .testimonial-image {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-image:hover {
-            transform: scale(1.02);
-        }
-
-        /* Video Thumbnail Styling */
-        .video-thumbnail-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .video-thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .play-button-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .play-icon {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .testimonial-card:hover .play-button-overlay {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        /* Video Testimonials Grid */
-        .video-testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-            width: 100%;
-        }
-
-        .video-testimonial-card {
-            background-color: #F6F1E9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(91, 31, 15, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .video-testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .video-testimonial-card .video-thumbnail-container {
-            height: 400px;
-        }
-
-        /* Responsive Design for Testimonials */
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
         @media (max-width: 1024px) {
-            .testimonials-grid {
+            .how-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .proof-metrics, .proof-quotes {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
             }
-            
-            .video-thumbnail-container {
-                height: 250px;
-            }
-
-            .video-testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
+            .hero-badge { display: none !important; }
         }
 
         @media (max-width: 768px) {
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin: 2rem 0;
-            }
+            .nav-links { display: none; }
+            .section-pad { padding: 70px 1.25rem; }
 
-            .video-testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                max-width: 500px;
-                margin: 2rem auto;
-            }
-        }
-
-        /* Typeform Animation */
-        @keyframes typeformFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Mobile Responsive for Typeform Modal */
-        @media (max-width: 768px) {
-            .typeform-modal .close {
-                width: 45px;
-                height: 45px;
-                font-size: 1.8rem;
-                top: 15px;
-                right: 15px;
-            }
-        }
-
-        /* Final CTA Button Styles */
-        .final-cta {
-            text-align: center;
-            margin-top: 0;
-            padding: 0 2rem;
-            background-color: #F2EEE6 !important;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            border-top: none;
-            border-bottom: none;
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta .cta-button {
-            margin: 0 auto;
-        }
-
-        /* Ensure no conflicting backgrounds */
-        .results-section .final-cta {
-            background-color: #F2EEE6 !important;
-        }
-
-        /* Mobile Responsive for Final CTA */
-        @media (max-width: 768px) {
-            .final-cta {
-                margin-top: 0;
-                padding: 0 1rem;
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-                background-color: #F2EEE6 !important;
-            }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 1rem;
-                min-height: 85vh;
-                padding-bottom: 1rem;
-                height: auto;
+            .hero {
+                padding: 6rem 1.25rem 3rem;
                 min-height: auto;
-                padding-bottom: 0.5rem !important;
+            }
+            .hero-headline {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+            }
+            .hero-ctas { flex-direction: column; }
+            .hero-badge { display: none !important; }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
-            .hero-content {
-                margin-bottom: 0 !important;
+            .proof-metrics,
+            .proof-quotes {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .headline {
-                font-size: clamp(16px, 8vw, 3rem);
-                margin-bottom: 1rem;
+            .mission-panel {
+                padding: 2.5rem 1.75rem;
+            }
+            .mission-panel::before {
+                display: none;
             }
 
-            .subheadline {
-                font-size: clamp(0.8rem, 3vw, 1rem);
-                margin-bottom: 2rem;
-            }
-
-            .video-container {
-                margin-bottom: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.875rem 2.5rem;
-                font-size: 1.1rem;
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 0;
-            }
-
-            .cta-button-secondary {
-                padding: 0.875rem 2.5rem;
-                font-size: 1.1rem;
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 0;
-            }
-
-            .modal-content {
-                width: 98%;
-                height: 95%;
-                margin: 1% auto;
-            }
-
-            .modal-header {
-                padding: 1rem;
-            }
-
-            .modal-title {
-                font-size: 1.25rem;
-            }
-
-            /* Mission section mobile adjustments */
-            .mission-section {
-                padding: 60px 1.5rem;
-            }
-
-            .mission-title {
-                font-size: clamp(1.75rem, 6vw, 2.5rem);
-                margin-bottom: 1.5rem;
-            }
-
-            .mission-text {
-                font-size: clamp(1rem, 4vw, 1.2rem);
-                line-height: 1.7;
-            }
-        }
-
-        @media (max-width: 480px) {
-            html, body {
-                margin: 0;
-                padding: 0;
-            }
-
-            * {
-                margin-top: 0;
-                padding-top: 0;
-            }
-
-            .hero-section {
-                padding: 0;
-                padding-top: 24px;
-                padding-left: 10px;
-                padding-right: 10px;
-                padding-bottom: 1.5rem !important;
-                margin: 0;
-                min-height: auto !important;
-                height: auto !important;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-            }
-
-            .hero-content {
-                padding-top: 1rem;
-                margin-top: 0;
-                margin-bottom: 0 !important;
-            }
-
-            .headline {
-                font-size: 20px;
-                line-height: 1.25;
-                margin-top: 0;
-                padding-top: 0;
-            }
-
-            .subheadline {
-                font-size: 13px;
-                line-height: 1.25;
-                margin-top: 0;
-                padding-top: 0;
-            }
-
-            .cta-button {
-                padding: 0.75rem 2rem;
-                font-size: 1rem;
-            }
-
-            .mission-section {
-                padding: 50px 1rem;
-            }
-
-            .mission-title {
-                font-size: clamp(1.5rem, 8vw, 2rem);
-            }
-
-            .mission-text {
-                font-size: clamp(0.95rem, 5vw, 1.1rem);
-            }
-
-            /* About section mobile adjustments */
-            .about-section {
-                padding: 50px 1rem;
+            .fit-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                margin-bottom: 3rem;
             }
+            .about-content { text-align: center; }
 
-            .about-content {
-                padding-right: 0;
-                text-align: center;
-            }
-
-            .about-title {
-                font-size: clamp(1.5rem, 8vw, 2rem);
-            }
-
-            .about-text {
-                font-size: clamp(0.95rem, 5vw, 1.1rem);
-            }
-
-            .image-placeholder {
-                max-width: 300px;
-            }
-
-            /* Timeline mobile adjustments */
             .timeline {
                 flex-direction: column;
-                gap: 2rem;
-            }
-
-            .timeline::before {
-                display: none;
-            }
-
-            .timeline-item {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .timeline-content {
-                max-width: 100%;
-            }
-
-            .timeline-title {
-                font-size: clamp(1.25rem, 6vw, 1.75rem);
-                margin-bottom: 2rem;
-            }
-
-            /* Pillars section mobile adjustments */
-            .pillars-section {
-                padding: 50px 1rem;
-            }
-
-            .pillars-title {
-                font-size: clamp(1.5rem, 8vw, 2rem);
-                margin-bottom: 2rem;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr;
                 gap: 1.5rem;
-                margin-bottom: 2rem;
+                align-items: center;
             }
+            .timeline::before { display: none; }
+            .timeline-card { max-width: 260px; }
 
-            .pillar-card {
-                padding: 1.5rem;
+            .how-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
             }
-
-            .pillar-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-
-            .pillar-title {
-                font-size: clamp(1.1rem, 4vw, 1.3rem);
-            }
-
-            .pillar-description {
-                font-size: clamp(0.9rem, 3vw, 1rem);
-            }
-
-            /* Results section mobile adjustments */
-            .results-section {
-                padding: 60px 1rem;
-            }
-
-            .results-title {
-                font-size: clamp(1.5rem, 8vw, 2rem);
-                margin-bottom: 2rem;
-            }
-
-            .testimonials-grid {
+            .how-metrics {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        /* Kill unnecessary section padding + widen layout */
-        .section {
-            padding: 40px 0 !important;       /* top and bottom only */
-            max-width: none !important;
-            width: 100% !important;
-        }
-
-
-
-        /* Reset container or wrapper if it exists */
-        .container, .wrapper {
-            max-width: none !important;
-            width: 100% !important;
-            padding: 0 !important;
-            margin: 0 auto !important;
-        }
-
-        /* Let h1 and p breathe */
-        h1 {
-            font-size: 32px;
-            line-height: 1.2;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto 0;
-            padding: 0 20px;
-        }
-
-        /* STRONG FIX: Desktop headline and subheadline width + font size */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 20px;
-                line-height: 1.3;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 0 10px; /* TIGHTER side padding */
+                gap: 1rem;
             }
 
-            p {
-                font-size: 13px;
-                line-height: 1.6;
-                max-width: 650px;
-                margin: 25px auto 0;
-                padding: 0 10px;
+            .vid-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
             }
+            .vid-thumb { height: 280px; }
 
-            .section {
-                padding-top: 40px;
+            .video-modal-box { width: 95%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 1rem 2rem;
             }
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .how-steps {
+                grid-template-columns: 1fr;
+            }
+            .mission-panel {
+                padding: 2rem 1.25rem;
+                border-radius: 12px;
+            }
+            .fit-card { padding: 1.75rem; }
         }
     </style>
 </head>
 <body>
-    <!-- SECTION 1: Hero Section -->
-    <section class="hero-section">
+
+    <!-- ===== 0. STICKY NAV ===== -->
+    <nav class="nav" id="mainNav">
+        <a href="#" class="nav-logo">HighTicket<strong>Elites</strong></a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#proof">Proof</a></li>
+        </ul>
+        <a href="#" class="nav-cta" onclick="openTypeformModal(); return false;">Start Now</a>
+    </nav>
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero noise-overlay" id="hero">
         <div class="hero-content">
-            <!-- Headline -->
-            <h1 class="headline">THE RAW TRUTH ABOUT BUILDING A 6–7 FIGURE BRAND WITHOUT PLAYING THE DROPSHIPPING LOTTERY</h1>
-            
-            <!-- Embed Wistia or Loom video here -->
-            
-            <!-- Video Container -->
-            <div class="video-container">
-                <!-- WISTIA VIDEO EMBED -->
-                <script src="https://fast.wistia.com/player.js" async></script>
-                <script src="https://fast.wistia.com/embed/pdtc5v4po5.js" async type="module"></script>
-                <style>wistia-player[media-id='pdtc5v4po5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pdtc5v4po5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
-                <wistia-player media-id="pdtc5v4po5" aspect="1.7777777777777777"></wistia-player>
-                <!-- END WISTIA VIDEO EMBED -->
-            </div>
-            
-            <!-- Subheadline -->
-            <p class="subheadline">How I scaled past $100K/month by building a real business with retention and long-term equity.</p>
-            
-            <!-- CTA Button -->
-            <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
-        </div>
-    </section>
-
-    <!-- SECTION 2: Mission Section -->
-    <section class="mission-section">
-        <div class="mission-content">
-            <!-- Mission Title -->
-            <h2 class="mission-title">We're not building viral stores. We're building <span class="highlight-green">businesses that print</span>.</h2>
-            
-            <!-- Mission Text -->
-            <p class="mission-text">
-                Most people treat ecom like a lottery.
+            <h1 class="hero-headline reveal">
+                Build a Real eCommerce <span class="shimmer">Empire</span>
+            </h1>
+            <p class="hero-sub reveal reveal-delay-1">
+                The raw truth about building a 6–7 figure brand without playing the dropshipping lottery. Real infrastructure. Real margins. Real equity.
             </p>
-
-            <p class="mission-text">
-                They copy a product, slap on some Canva branding, run a few ads, and hope it works.
-            </p>
-
-            <p class="mission-text">
-                That's not what we do here.
-            </p>
-
-            <p class="mission-text">
-                We build like <span class="highlight-burgundy">real operators</span>.
-            </p>
-
-            <p class="mission-text">
-                <span class="highlight-burgundy">Real infrastructure</span>. <span class="highlight-burgundy">Real positioning</span>. <span class="highlight-burgundy">Real retention</span>.
-            </p>
-
-            <p class="mission-text">
-                Systems that don't crumble the second your CPMs jump or a supplier goes rogue.
-            </p>
-
-            <p class="mission-text">
-                And we're not slinging $30 AliExpress trash with fake urgency and hope.
-            </p>
-
-            <p class="mission-text">
-                We're selling actual products — at <span class="highlight-green">real margins</span> — using real strategy.
-            </p>
-
-            <p class="mission-text">
-                Just like <span class="highlight-green">Best Buy</span>. Just like <span class="highlight-green">Apple</span>. Just like every brand that <span class="highlight-burgundy">wins long-term</span>.
-            </p>
-
-            <p class="mission-text">
-                <span class="highlight-emphasis">This is how you win without chasing trends, hiring 5 agencies, or burning out trying to "go viral."</span>
-            </p>
-
-            <p class="mission-text">
-                Most of the info out there is <span class="highlight-burgundy">garbage</span> — outdated, copy-pasted, or coming from people who never scaled anything past a few orders.
-            </p>
-
-            <p class="mission-text">
-                The truth? New founders are actually in the best position to run this model.
-            </p>
-
-            <p class="mission-text">
-                You're not unlearning bad habits. You're starting with <span class="highlight-green">systems that actually work</span>.
-            </p>
-
-            <p class="mission-text">
-                Everything I teach is what I've used to scale multiple stores past <span class="highlight-green">$10K, $30K, even $50K days</span> — without needing to babysit everything 24/7.
-            </p>
-
-            <p class="mission-text">
-                If that sounds different from what you've heard before — it's because it is. But it works. And I'll show you how.
-            </p>
-        </div>
-    </section>
-
-    <!-- SECTION 3: About Ason Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <!-- Two-Column Layout -->
-            <div class="about-grid">
-                <!-- Left Column: Content -->
-                <div class="about-content">
-                    <h2 class="about-title">Who Is Ason?</h2>
-                    <p class="about-text">
-                        Ason's not some internet guru who popped up after going viral. He's a former U.S. Army vet who built his first six-figure brand from scratch.
-                    </p>
-                    <p class="about-text">
-                        No connections. No mentorship. No rich parents. Just a cheap laptop, shit Wi-Fi, and a ridiculous amount of grit.
-                    </p>
-                    <p class="about-text">
-                        Since then, he's scaled multiple high-ticket ecom brands past $100K/month, built a reputation as the guy who makes serious brands print money, and helped dozens of others do the same.
-                    </p>
-                    <p class="about-text">
-                        No gimmicks. No fake Lambos. Just real strategy, backed by real results.
-                    </p>
-                </div>
-                
-                <!-- Right Column: Image -->
-                <div class="about-image">
-                    <img src="ason-military-portrait.jpg" alt="Ason in military uniform with tactical gear, standing in desert environment with military vehicles in background" class="ason-portrait">
+            <div class="video-frame reveal reveal-delay-2">
+                <div class="video-placeholder" onclick="openTypeformModal()">
+                    <div class="vp-play-btn">
+                        <svg width="24" height="28" viewBox="0 0 24 28" fill="none"><path d="M22.5 12.268a2 2 0 010 3.464L3 26.66A2 2 0 010 25V3a2 2 0 013-1.732l19.5 11.268z" fill="currentColor"/></svg>
+                    </div>
+                    <div class="vp-label">Watch the Free Training</div>
+                    <div class="vp-duration">30 min</div>
                 </div>
             </div>
-            
-            <!-- CTA Button -->
-            <div class="about-cta">
-                <button class="cta-button-secondary" onclick="openModal()">Continue to Application</button>
+
+            <div class="hero-ctas reveal reveal-delay-3">
+                <button class="btn-gold" onclick="openTypeformModal()">Start Now &rarr;</button>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: Pillars Section - HIDDEN FOR EDITING -->
-    <!--
-    <section class="pillars-section">
-        <div class="pillars-container">
-            <h2 class="pillars-title">Pillars of High Ticket Elites</h2>
-            
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-number">1</div>
-                    <h3 class="pillar-title">Premium Products</h3>
-                    <p class="pillar-description">
-                        We don't sell $20 gadgets. We build brands with $500–$2,000 price points — offers that command real margin, and real authority.
-                    </p>
+    <!-- ===== 2. HOW IT WORKS ===== -->
+    <section class="how-section noise-overlay section-pad" id="how-it-works">
+        <div class="container text-center">
+            <h2 class="section-title reveal">How It Works</h2>
+            <p class="section-subtitle reveal">A simple, proven model for building a sustainable eCommerce business</p>
+
+            <div class="how-steps">
+                <div class="how-step reveal">
+                    <div class="how-step-icon">&#128179;</div>
+                    <div class="how-step-num">Step 1</div>
+                    <div class="how-step-title">Authorized Dealer</div>
+                    <div class="how-step-desc">Get authorized with premium brands and suppliers</div>
                 </div>
-                
-                <div class="pillar-card">
-                    <div class="pillar-number">2</div>
-                    <h3 class="pillar-title">Best-in-Class Suppliers</h3>
-                    <p class="pillar-description">
-                        Not AliExpress. Real suppliers. Real backend. Your customer experience looks more like Best Buy — not a TikTok hustle gone wrong.
-                    </p>
+                <div class="how-step reveal reveal-delay-1">
+                    <div class="how-step-icon">&#128270;</div>
+                    <div class="how-step-num">Step 2</div>
+                    <div class="how-step-title">Google Ads</div>
+                    <div class="how-step-desc">Drive high-intent buyers directly to your store</div>
                 </div>
-                
-                <div class="pillar-card">
-                    <div class="pillar-number">3</div>
-                    <h3 class="pillar-title">Scalable Infrastructure</h3>
-                    <p class="pillar-description">
-                        No trend-chasing. We build backend systems to take one hero product to $100K+ months with clean ops, upsells, and smart retention.
-                    </p>
+                <div class="how-step reveal reveal-delay-2">
+                    <div class="how-step-icon">&#128722;</div>
+                    <div class="how-step-num">Step 3</div>
+                    <div class="how-step-title">Customer Buys</div>
+                    <div class="how-step-desc">They purchase premium products at premium prices</div>
                 </div>
-                
-                <div class="pillar-card">
-                    <div class="pillar-number">4</div>
-                    <h3 class="pillar-title">Retention & LTV</h3>
-                    <p class="pillar-description">
-                        You're not resetting to $0 every month. This is about subscription models, repeat buyers, and stacking real long-term equity.
-                    </p>
+                <div class="how-step reveal reveal-delay-3">
+                    <div class="how-step-icon">&#128230;</div>
+                    <div class="how-step-num">Step 4</div>
+                    <div class="how-step-title">Supplier Ships</div>
+                    <div class="how-step-desc">Supplier handles fulfillment directly to the customer</div>
+                </div>
+                <div class="how-step reveal reveal-delay-4">
+                    <div class="how-step-icon">&#128176;</div>
+                    <div class="how-step-num">Step 5</div>
+                    <div class="how-step-title">You Profit</div>
+                    <div class="how-step-desc">Keep the margin between wholesale and retail price</div>
                 </div>
             </div>
-            
-            <div class="pillars-cta">
-                <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
+
+            <div class="how-metrics">
+                <div class="how-metric reveal">
+                    <div class="how-metric-num">$2,000+</div>
+                    <div class="how-metric-label">Average Order Value</div>
+                </div>
+                <div class="how-metric reveal reveal-delay-1">
+                    <div class="how-metric-num">30–50%</div>
+                    <div class="how-metric-label">Profit Margins</div>
+                </div>
+                <div class="how-metric reveal reveal-delay-2">
+                    <div class="how-metric-num">3–5x</div>
+                    <div class="how-metric-label">Target ROAS</div>
+                </div>
             </div>
         </div>
     </section>
-    -->
 
-    <!-- SECTION 5: Student Results Section -->
-    <section class="results-section">
-        <div class="results-container">
-            <!-- Section Title -->
-            <h2 class="results-title">Student Results</h2>
-            
+    <!-- ===== 3. PROOF & TESTIMONIALS ===== -->
+    <section class="proof-section noise-overlay section-pad" id="proof">
+        <div class="container text-center">
+            <div class="section-badge reveal">Real Results</div>
+            <h2 class="section-title reveal">Proof That Speaks</h2>
+            <p class="section-subtitle reveal">No fluff. Real people, real revenue, real brands built from scratch.</p>
+
             <!-- Video Testimonials -->
-            <div class="video-testimonials-grid">
-                <!-- Ben Testimonial Video -->
-                <div class="video-testimonial-card" onclick="openVideoModal('gzsxyf4ryp', 'wistia', 'Ben Testimonial ($0 - $50k)')">
-                    <div class="video-thumbnail-container">
-                        <img src="https://fast.wistia.com/embed/medias/gzsxyf4ryp/swatch" alt="Ben Testimonial Preview" class="video-thumbnail">
-                        <div class="play-button-overlay">
-                            <span class="play-icon">▶</span>
-                        </div>
+            <div class="vid-grid" style="margin-bottom: 3rem;">
+                <div class="vid-card reveal">
+                    <div style="position: relative; padding-top: 56.25%; border-radius: 8px; overflow: hidden;">
+                        <iframe src="https://www.youtube.com/embed/oAx0s0vz5Oc" title="Student Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
                     </div>
-                    <h3 class="testimonial-name">Ben Testimonial ($0 - $50k)</h3>
-                    <p class="testimonial-quote">
-                        "Watch Ben's journey from $0 to $50k in our program."
-                    </p>
                 </div>
-                
-                <!-- Kenny Testimonial Video -->
-                <div class="video-testimonial-card" onclick="openVideoModal('583px6guy5', 'wistia', 'Kenny Testimonial ($200k / mo)')">
-                    <div class="video-thumbnail-container">
-                        <img src="https://fast.wistia.com/embed/medias/583px6guy5/swatch" alt="Kenny Testimonial Preview" class="video-thumbnail">
-                        <div class="play-button-overlay">
-                            <span class="play-icon">▶</span>
-                        </div>
+                <div class="vid-card reveal reveal-delay-1">
+                    <div style="position: relative; padding-top: 56.25%; border-radius: 8px; overflow: hidden;">
+                        <iframe src="https://www.youtube.com/embed/B4Uu0gTrhiU" title="Student Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
                     </div>
-                    <h3 class="testimonial-name">Kenny Testimonial ($200k / mo)</h3>
-                    <p class="testimonial-quote">
-                        "See how Kenny achieved $200k/month results."
-                    </p>
                 </div>
             </div>
 
-            <!-- Picture Testimonials Grid -->
-            <div class="testimonials-grid">
-                <img src="Program Results/IMG_0667 (1).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_7395.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_0667.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/06BB1CE4-7555-4C91-9972-61B1EDF2061E.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_0829.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_1486.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_3114.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_3115.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_4253.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_6265.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_7603.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_9668.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5004.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5500.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_1296.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_1297.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_1630.jpg.jpeg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (69).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5826.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5827.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (65).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_2722.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_8891 (1).PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_0859.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5748.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_0064.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_4497.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5620.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5176.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5386.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_4711.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5175.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_5619.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_3662.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (64).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (63).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (62).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (61).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_4688.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG_4687.PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (58).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (57).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (56).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (1).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/MARCH15.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG-2753.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/marresult.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (3).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/cam 2 orders while sleeping.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/No ads sale.jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (4).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (3).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (2).PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (1).PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/IMG-2129 (1).PNG" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (1).jpg" alt="Student Results" class="testimonial-image">
-                <img src="Program Results/SR1 (5).jpg" alt="Student Results" class="testimonial-image">
+            <!-- Quote testimonials -->
+            <div class="proof-quotes">
+                <div class="quote-card reveal">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">Went from zero to $50K in my first few months. Ason's system is unlike anything else out there.</p>
+                    <div class="quote-author">Ben</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+                <div class="quote-card reveal reveal-delay-1">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">$200K/month and growing. This model gives you real margins and real retention. Not chasing trends.</p>
+                    <div class="quote-author">Kenny</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+                <div class="quote-card reveal reveal-delay-2">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text">The infrastructure Ason teaches is what separates real operators from people playing the lottery.</p>
+                    <div class="quote-author">Pat</div>
+                    <div class="quote-role">eCommerce Dealer</div>
+                </div>
+            </div>
+
+            <!-- Screenshot testimonials grid -->
+            <div class="testimonial-grid" id="testimonialGrid">
+                <img src="Program Results/Pat4.6k.jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/77kmo kenny.jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/SR1 (2).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (68).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (72).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (41).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (5).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/unnamed (2).jpg" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/038ef7db21e686fbdedc60a361701e8f.png" alt="Student Results" class="testimonial-img" loading="lazy">
+                <img src="Program Results/03f38000794e412e47387cb7eb08d633.png" alt="Student Results" class="testimonial-img" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Modal Popup -->
-    <div id="applicationModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Apply for Mentorship</h2>
-                <button class="close-button" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="typeform-container">
-                    <!-- TYPEFORM EMBED - REPLACE THE IFRAME BELOW WITH YOUR ACTUAL TYPEFORM EMBED CODE -->
-                    <iframe class="typeform-embed"
-                            src="about:blank"
-                            title="Application Form">
-                    </iframe>
-                    <!-- END TYPEFORM EMBED -->
+    <!-- ===== 4. FAQ ===== -->
+    <section class="faq-section noise-overlay section-pad">
+        <div class="container text-center">
+            <h2 class="section-title reveal">Common Questions</h2>
+            <p class="section-subtitle reveal">Everything you need to know before applying</p>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How much does it cost to join the mentorship?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We discuss pricing on the strategy call because every situation is different. We want to make sure it's the right fit before talking numbers. Apply first, and we'll walk through everything together.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">Do I need experience in eCommerce?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">No. Many of our most successful members started from zero. The system is designed to be followed step-by-step. In fact, new founders often do better because they don't have bad habits to unlearn.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How long does it take to see results?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Most members see their first sales within 30–60 days of setting up their store. Scaling to consistent revenue takes 3–6 months of focused effort. This isn't a get-rich-quick scheme — it's a real business.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">How much capital do I need to start?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We recommend having at least $2,000–$5,000 for your initial ad spend and store setup. Because you're dropshipping high-ticket items, you don't need to buy inventory upfront — the supplier ships directly to the customer.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">Can I do this part-time alongside my job?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Absolutely. Most of our members start part-time. The model is designed to scale without needing to babysit everything 24/7. Once your systems are set up, the business runs on autopilot for the most part.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">What makes this different from other eCom programs?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We focus on high-ticket authorized dealer models — not low-margin AliExpress products. You're selling $500–$2,000+ items from real brands with real infrastructure. Think Best Buy, not a TikTok hustle. The margins, retention, and long-term equity are in a completely different league.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span class="faq-question-text">What kind of support do I get?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">You get direct access to Ason and the team through our private community. This includes 1-on-1 guidance, group calls, ad reviews, store audits, and a full library of training materials. We're in the trenches with you.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== 10. FINAL CTA ===== -->
+    <section class="final-cta-section noise-overlay">
+        <div class="container">
+            <h2 class="final-cta-headline reveal">Ready to Build Something <span class="shimmer">Real</span>?</h2>
+            <p class="final-cta-sub reveal reveal-delay-1">Apply now and see if you're the right fit for the mentorship. No pressure, no obligations — just a real conversation about your goals.</p>
+            <button class="btn-gold reveal reveal-delay-2" style="font-size: 1rem; padding: 1.1em 3em;" onclick="openTypeformModal()">Apply Now &rarr;</button>
+            <p class="final-cta-note reveal reveal-delay-3">Limited spots available</p>
+        </div>
+    </section>
+
+    <!-- ===== TYPEFORM MODAL ===== -->
+    <div class="modal-overlay" id="typeformModal">
+        <div class="typeform-modal-content">
+            <button class="modal-close" onclick="closeTypeformModal()">&times;</button>
+            <iframe src="https://form.typeform.com/to/waw3Nx7c" allowfullscreen></iframe>
         </div>
     </div>
 
-        <!-- Final CTA Button -->
-        <div class="final-cta">
-            <button class="cta-button apply-now-btn" onclick="openTypeformModal()">Apply Now</button>
-        </div>
-    </section>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <div class="video-modal-content">
+    <!-- ===== VIDEO MODAL ===== -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="video-modal-box">
             <div class="video-modal-header">
                 <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
             </div>
-            <div class="video-modal-body" id="videoModalBody">
-                <!-- Video content will be dynamically inserted here -->
-            </div>
+            <div class="video-modal-body" id="videoModalBody"></div>
         </div>
     </div>
 
-    <!-- Typeform Modal -->
-    <div id="typeformModal" class="modal">
-        <div class="modal-content typeform-modal">
-            <div class="modal-header">
-                <span class="close" onclick="closeTypeformModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <!-- Typeform Embed -->
-                <iframe src="https://form.typeform.com/to/waw3Nx7c" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Typeform Modal Functions
-        function openTypeformModal() {
-            document.getElementById('typeformModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTypeformModal() {
-            document.getElementById('typeformModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Legacy modal functions (keeping for compatibility)
-        function openModal() {
-            openTypeformModal();
-        }
-
-        function closeModal() {
-            closeTypeformModal();
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('typeformModal');
-            if (event.target === modal) {
-                closeTypeformModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeTypeformModal();
-                closeVideoModal();
-            }
+        // --- Nav scroll effect ---
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Video Modal Functions
-        function openVideoModal(videoId, videoType, videoTitle) {
-            const modal = document.getElementById('videoModal');
-            const modalBody = document.getElementById('videoModalBody');
-            
-            // Clear previous content
-            modalBody.innerHTML = '';
-            
-            if (videoType === 'wistia') {
-                // Create Wistia embed
-                const wistiaScript = document.createElement('script');
-                wistiaScript.src = 'https://fast.wistia.com/player.js';
-                wistiaScript.async = true;
-                
-                const wistiaEmbed = document.createElement('script');
-                wistiaEmbed.src = `https://fast.wistia.com/embed/${videoId}.js`;
-                wistiaEmbed.async = true;
-                wistiaEmbed.type = 'module';
-                
-                const wistiaPlayer = document.createElement('wistia-player');
-                wistiaPlayer.setAttribute('media-id', videoId);
-                wistiaPlayer.setAttribute('aspect', '1.7777777777777777');
-                
-                modalBody.appendChild(wistiaScript);
-                modalBody.appendChild(wistiaEmbed);
-                modalBody.appendChild(wistiaPlayer);
-            } else if (videoType === 'youtube') {
-                // Create YouTube embed
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${videoId}`;
-                iframe.width = '100%';
-                iframe.height = '100%';
-                iframe.frameBorder = '0';
-                iframe.allowFullscreen = true;
-                
-                modalBody.appendChild(iframe);
-            }
-            
-            modal.style.display = 'block';
+        // --- Reveal on scroll (IntersectionObserver) ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // --- Typeform Modal ---
+        function openTypeformModal() {
+            document.getElementById('typeformModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
+        function closeTypeformModal() {
+            document.getElementById('typeformModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
+        // --- Video Modal ---
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const body = document.getElementById('videoModalBody');
+            body.innerHTML = '';
+
+            const script1 = document.createElement('script');
+            script1.src = 'https://fast.wistia.com/player.js';
+            script1.async = true;
+
+            const script2 = document.createElement('script');
+            script2.src = `https://fast.wistia.com/embed/${videoId}.js`;
+            script2.async = true;
+            script2.type = 'module';
+
+            const player = document.createElement('wistia-player');
+            player.setAttribute('media-id', videoId);
+            player.setAttribute('aspect', '1.7777777777777777');
+
+            const style = document.createElement('style');
+            style.textContent = `wistia-player[media-id='${videoId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${videoId}/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`;
+
+            body.appendChild(script1);
+            body.appendChild(script2);
+            body.appendChild(style);
+            body.appendChild(player);
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
-            const modalBody = document.getElementById('videoModalBody');
-            
-            // Clear video content to stop playback
-            modalBody.innerHTML = '';
-            
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.getElementById('videoModalBody').innerHTML = '';
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
-        // Close video modal when clicking outside of it
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target === modal) {
+        // --- Close modals on backdrop click ---
+        document.getElementById('typeformModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTypeformModal();
+        });
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeVideoModal();
+        });
+
+        // --- Close modals on Escape ---
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTypeformModal();
                 closeVideoModal();
             }
         });
+
+        // --- Testimonial grid show more ---
+        function toggleTestimonials() {
+            const grid = document.getElementById('testimonialGrid');
+            const btn = document.getElementById('showMoreBtn');
+            const isCollapsed = grid.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                grid.classList.remove('collapsed');
+                btn.textContent = 'Show Less';
+            } else {
+                grid.classList.add('collapsed');
+                btn.textContent = 'Show All Results';
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // --- FAQ accordion ---
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const wasOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+
+            // Toggle clicked
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
+        }
     </script>
 
     <!-- Typeform Embed Script -->
@@ -1734,4 +1819,4 @@
         })();
     </script>
 </body>
-</html> 
+</html>
