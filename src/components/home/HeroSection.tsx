@@ -69,11 +69,38 @@ const HeroSection = () => {
             risk. No guesswork. Just results.
           </motion.p>
 
+          {/* Hero visual — video placeholder with gold corner frames */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative max-w-4xl mx-auto mb-12"
+          >
+            <Link
+              to="/start-now"
+              className="card-premium p-2 glow-gold gold-corner-frame block cursor-pointer"
+            >
+              <div className="aspect-video bg-gradient-to-br from-secondary to-muted rounded-xl flex items-center justify-center relative overflow-hidden">
+                {/* Radial glow inside */}
+                <div className="absolute inset-0 bg-gradient-radial from-gold/5 via-transparent to-transparent" />
+                <div className="text-center relative z-10">
+                  <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4 border border-gold/30">
+                    <Play className="h-8 w-8 text-gold" />
+                  </div>
+                  <p className="text-muted-foreground font-display text-sm uppercase tracking-widest">
+                    Watch Free Training
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+          </motion.div>
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
           >
             <Button
@@ -97,33 +124,6 @@ const HeroSection = () => {
                 See How It Works
               </Link>
             </Button>
-          </motion.div>
-
-          {/* Hero visual — video placeholder with gold corner frames */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative max-w-4xl mx-auto mb-20"
-          >
-            <Link
-              to="/start-now"
-              className="card-premium p-2 glow-gold gold-corner-frame block cursor-pointer"
-            >
-              <div className="aspect-video bg-gradient-to-br from-secondary to-muted rounded-xl flex items-center justify-center relative overflow-hidden">
-                {/* Radial glow inside */}
-                <div className="absolute inset-0 bg-gradient-radial from-gold/5 via-transparent to-transparent" />
-                <div className="text-center relative z-10">
-                  <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4 border border-gold/30">
-                    <Play className="h-8 w-8 text-gold" />
-                  </div>
-                  <p className="text-muted-foreground font-display text-sm uppercase tracking-widest">
-                    Watch Free Training
-                  </p>
-                </div>
-              </div>
-            </Link>
-
           </motion.div>
         </div>
 

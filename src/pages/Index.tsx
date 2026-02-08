@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import ProofWallSection from "@/components/home/ProofWallSection";
 import WhatThisIsSection from "@/components/home/WhatThisIsSection";
 import WhoItsForSection from "@/components/home/WhoItsForSection";
 import TheModelSection from "@/components/home/TheModelSection";
@@ -18,7 +17,6 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <ProofWallSection />
       <WhatThisIsSection />
       <WhoItsForSection />
       <TheModelSection />
