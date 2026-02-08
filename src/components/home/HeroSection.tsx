@@ -124,35 +124,6 @@ const HeroSection = () => {
               </div>
             </Link>
 
-            {/* Floating cards */}
-            <div className="absolute -left-4 md:-left-12 top-1/4 card-premium p-4 hidden md:block animate-float">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
-                  <span className="text-gold font-bold font-display">$</span>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">+$4,230</p>
-                  <p className="text-xs text-muted-foreground">
-                    Today's Revenue
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="absolute -right-4 md:-right-12 bottom-1/4 card-premium p-4 hidden md:block animate-float"
-              style={{ animationDelay: "1s" }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <span className="text-green-400 font-bold">&#8593;</span>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">+23%</p>
-                  <p className="text-xs text-muted-foreground">This Month</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 
