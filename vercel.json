@@ -1,4 +1,15 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/booking", "destination": "/booking.html" },
+    {
+      "source": "/confirmation-page",
+      "destination": "/confirmation-page.html"
+    },
+    {
+      "source": "/((?!assets|testimonials|booking\\.html|confirmation-page\\.html).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

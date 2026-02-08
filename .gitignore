@@ -1,3 +1,9 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
 # Large video files
 *.mp4
 *.mov
@@ -5,21 +11,16 @@
 *.mkv
 *.wmv
 *.flv
-
-# Video file formats
 *.sfk
-
-# Large media files
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.wmv
-*.flv
 
 # System files
 .DS_Store
+.DS_Store?
 Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
 # IDE files
 .vscode/
@@ -27,14 +28,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-
-
+# Environment
+.env
+.env.local
+.env.*.local
