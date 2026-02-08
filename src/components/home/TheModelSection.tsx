@@ -114,7 +114,7 @@ const TheModelSection = () => {
             </div>
             <div className="card-premium p-6 text-center">
               <p className="text-3xl font-bold text-gradient-gold mb-2">
-                15-25%
+                25-40%
               </p>
               <p className="text-sm text-muted-foreground">
                 Typical Profit Margins

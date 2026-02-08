@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const metrics = [
   { value: "$2,000+", label: "Avg. Order Value" },
-  { value: "15-25%", label: "Profit Margins" },
+  { value: "25-40%", label: "Profit Margins" },
   { value: "3-5x", label: "Target ROAS" },
   { value: "50+", label: "Active Dealers" },
 ];
