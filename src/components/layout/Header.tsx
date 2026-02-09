@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { useTypeform } from "@/context/TypeformContext";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -14,6 +15,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { openTypeform } = useTypeform();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,8 +72,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="btn-primary text-sm">
-              <Link to="/start-now">Start Now</Link>
+            <Button
+              className="btn-primary text-sm"
+              onClick={openTypeform}
+            >
+              Start Now
             </Button>
           </div>
 
@@ -113,8 +118,14 @@ const Header = () => {
                     {link.label}
                   </Link>
                 ))}
-                <Button asChild className="btn-primary mt-4">
-                  <Link to="/start-now">Start Now</Link>
+                <Button
+                  className="btn-primary mt-4"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openTypeform();
+                  }}
+                >
+                  Start Now
                 </Button>
               </div>
             </motion.div>

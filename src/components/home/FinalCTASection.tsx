@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useTypeform } from "@/context/TypeformContext";
 
 const FinalCTASection = () => {
+  const { openTypeform } = useTypeform();
+
   return (
     <section className="section-padding noise-overlay relative overflow-hidden">
       {/* Background accents */}
@@ -28,14 +30,12 @@ const FinalCTASection = () => {
             eCommerce businesses.
           </p>
           <Button
-            asChild
             size="lg"
             className="btn-primary text-base group animate-gold-pulse"
+            onClick={openTypeform}
           >
-            <Link to="/start-now">
-              Start Now
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            Start Now
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
       </div>

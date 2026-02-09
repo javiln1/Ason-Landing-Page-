@@ -5,6 +5,7 @@ import Index from "./pages/Index";
 import HowItWorks from "./pages/HowItWorks";
 import Proof from "./pages/Proof";
 import StartNow from "./pages/StartNow";
+import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -24,6 +25,7 @@ const App = () => (
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/proof" element={<Proof />} />
         <Route path="/start-now" element={<StartNow />} />
+        <Route path="/lp" element={<LandingPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
