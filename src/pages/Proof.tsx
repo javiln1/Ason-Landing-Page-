@@ -153,7 +153,7 @@ const ProofPage = () => {
                       {milestone.label}
                     </span>
                     <h3 className="text-xl font-bold mt-2 mb-3">{milestone.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-secondary-foreground/80 leading-relaxed">
                       {milestone.description}
                     </p>
                   </div>
