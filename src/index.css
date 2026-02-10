@@ -271,6 +271,15 @@
   }
 }
 
+/* Wistia player fallback swatch */
+wistia-player[media-id="pdtc5v4po5"]:not(:defined) {
+  background: center / contain no-repeat
+    url("https://fast.wistia.com/embed/medias/pdtc5v4po5/swatch");
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
 @layer utilities {
   .animate-in {
     animation: animate-in 0.5s ease-out forwards;
