@@ -52,9 +52,17 @@ const milestones = [
   },
 ];
 
-const ProofPage = () => {
+const ProofCTAButton = () => {
   const { openTypeform } = useTypeform();
+  return (
+    <Button size="lg" className="btn-primary text-base group" onClick={openTypeform}>
+      Start Now
+      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+    </Button>
+  );
+};
 
+const ProofPage = () => {
   return (
     <Layout>
       {/* Hero */}
@@ -213,10 +221,7 @@ const ProofPage = () => {
             <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-10">
               Join the network and start building your own story.
             </p>
-            <Button size="lg" className="btn-primary text-base group" onClick={openTypeform}>
-              Start Now
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <ProofCTAButton />
           </motion.div>
         </div>
       </section>
