@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, MapPin, Shield, DollarSign, Zap } from "lucide-react";
+import { useTypeform } from "@/context/TypeformContext";
 import VideoTestimonialsSection from "@/components/home/VideoTestimonialsSection";
 import ScreenshotTestimonialsSection from "@/components/home/ScreenshotTestimonialsSection";
 
@@ -52,6 +53,8 @@ const milestones = [
 ];
 
 const ProofPage = () => {
+  const { openTypeform } = useTypeform();
+
   return (
     <Layout>
       {/* Hero */}
@@ -210,11 +213,9 @@ const ProofPage = () => {
             <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-10">
               Join the network and start building your own story.
             </p>
-            <Button asChild size="lg" className="btn-primary text-base group">
-              <Link to="/start-now">
-                Start Now
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+            <Button size="lg" className="btn-primary text-base group" onClick={openTypeform}>
+              Start Now
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </motion.div>
         </div>
